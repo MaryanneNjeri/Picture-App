@@ -3,7 +3,7 @@ import { Text, CheckBox, View } from 'native-base';
 import FormInput from '../common/form/FormInput';
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class SignUpForm extends React.Component {
+export default class LoginForm extends React.Component {
   render() {
     return (
       <View>
@@ -29,9 +29,15 @@ export default class SignUpForm extends React.Component {
             {' '}
             {' '}
           </Text>
+
           <Text style={{ fontWeight: '200' }}>
-            I agree with the terms
+              Remember me..
           </Text>
+          <Text>
+            {' '}
+            {' '}
+          </Text>
+          <Text>Forgot Password ?</Text>
         </View>
 
       </View>

@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f3989f6-0a40-461f-86cd-80c88b61166a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/form/Form.styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/form/FormInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Auth/LoginSreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/LoginSreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/screens/Auth/LoginSreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+            <state relative-caret-position="726">
+              <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -49,11 +47,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+            <state relative-caret-position="440">
+              <caret line="20" column="4" lean-forward="true" selection-end-line="108" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Auth/LoginForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="814">
+              <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/Auth/SignUpForm.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+              <caret selection-end-line="40" selection-end-column="1" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -107,18 +120,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/navigation/Auth/AuthNavigator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#56#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/common/form/Form.styles.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
@@ -140,7 +141,6 @@
         <option value="$PROJECT_DIR$/navigation/MainAppNavigator.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.eslintrc.json" />
-        <option value="$PROJECT_DIR$/src/screens/Auth/LoginSreen.js" />
         <option value="$PROJECT_DIR$/src/navigation/MainAppNavigator.js" />
         <option value="$PROJECT_DIR$/src/navigation/Auth/AuthNavigator.js" />
         <option value="$PROJECT_DIR$/App.js" />
@@ -153,6 +153,9 @@
         <option value="$PROJECT_DIR$/src/components/common/form/Form.styles.js" />
         <option value="$PROJECT_DIR$/src/components/SignUp/SignUpForm.js" />
         <option value="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" />
+        <option value="$PROJECT_DIR$/src/components/Auth/SignUpForm.js" />
+        <option value="$PROJECT_DIR$/src/components/Auth/LoginForm.js" />
+        <option value="$PROJECT_DIR$/src/screens/Auth/LoginSreen.js" />
       </list>
     </option>
   </component>
@@ -196,6 +199,13 @@
               <item name="picture_app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
@@ -272,18 +282,18 @@
       <updated>1568111631943</updated>
       <workItem from="1568111633406" duration="473000" />
       <workItem from="1568112547235" duration="96000" />
-      <workItem from="1568112712025" duration="13715000" />
+      <workItem from="1568112712025" duration="14246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14284000" />
+    <option name="totallyTimeSpent" value="14815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1017" y="27" width="903" height="1053" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2613769" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2613769" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -448,16 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Auth/SignUpForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Auth/WelcomScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="542">
@@ -468,10 +468,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Auth/LoginSreen.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Auth/SignUpForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+        <state>
+          <caret selection-end-line="40" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Auth/LoginForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -480,8 +490,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        <state relative-caret-position="440">
+          <caret line="20" column="4" lean-forward="true" selection-end-line="108" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Auth/LoginSreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
