@@ -31,10 +31,10 @@ export default class SignUpForm extends React.Component {
 
  render() {
    const { agree, email, password } = this.state;
-   const { signUp,errors } = this.props;
+   const { signUp, errors } = this.props;
    return (
      <View>
-
+       {errors ? <Text style={{ fontWeight: '200', color: 'red' }}>{errors.email}</Text> : null}
        <FormInput
          standard
          regular
@@ -42,6 +42,7 @@ export default class SignUpForm extends React.Component {
          onChangeText={email => this.setState({ email })}
        />
        <Text>{' '}</Text>
+       {errors ? <Text style={{ fontWeight: '200', color: 'red' }}>{errors.password}</Text> : null}
        <FormInput
          standard
          regular
