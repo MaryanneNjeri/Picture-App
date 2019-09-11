@@ -38,6 +38,10 @@ export default class LoginScreen extends React.Component {
     this.props.navigation.navigate('SignUp');
   };
 
+  logIn=() => {
+    this.props.navigation.navigate('Landing');
+  };
+
   render() {
     return (
       <Container>
@@ -88,7 +92,7 @@ export default class LoginScreen extends React.Component {
 
           </View>
           <View style={{ alignItems: 'center' }}>
-            <Button signUp>Sign Up</Button>
+            <Button signUp onPress={this.logIn}>Login</Button>
             <Text>{' '}</Text>
             <Text
               note

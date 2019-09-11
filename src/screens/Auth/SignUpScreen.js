@@ -38,6 +38,15 @@ export default class LoginScreen extends React.Component {
     this.props.navigation.navigate('Login');
   };
 
+  signUp=(email, password, agree) => {
+    const user = {
+      email,
+      password,
+      agree,
+    };
+    console.log(user);
+  }
+
   render() {
     return (
       <Container>
@@ -83,18 +92,16 @@ export default class LoginScreen extends React.Component {
             </Text>
           </Body>
           <View style={styles.formContainer}>
-            <SignUpForm />
+            <SignUpForm signUp={this.signUp} />
             <Text>{' '}</Text>
 
           </View>
           <View style={{ alignItems: 'center' }}>
-            <Button signUp>Sign Up</Button>
-            <Text>{' '}</Text>
+
             <Text
               note
               style={{ fontSize: 12 }}
             >
-
               Already have an account ?
             </Text>
             <TouchableOpacity onPress={this.logIn}><Text style={{ color: '#008ae6', fontSize: 12 }} note>Login</Text></TouchableOpacity>
