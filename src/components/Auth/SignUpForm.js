@@ -31,7 +31,7 @@ export default class SignUpForm extends React.Component {
 
  render() {
    const { agree, email, password } = this.state;
-   const { signUp } = this.props;
+   const { signUp,errors } = this.props;
    return (
      <View>
 

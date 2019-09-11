@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f3989f6-0a40-461f-86cd-80c88b61166a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/firebase/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigation/App/AppNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/App/LandingScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Auth/LoadingScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/lib/functions/auth/validate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/MainAppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/MainAppNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Auth/LoginSreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/LoginSreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,18 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/Auth/LoginSreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/App/LandingScreen.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-946">
-              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="440">
+              <caret line="113" column="40" selection-start-line="113" selection-start-column="40" selection-end-line="113" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -113,10 +97,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Auth/LoginForm.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Auth/SignUpForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+            <state relative-caret-position="528">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -125,12 +109,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Auth/SignUpForm.js">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+            <state relative-caret-position="110">
+              <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/lib/functions/auth/validate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,8 +159,10 @@
         <option value="$PROJECT_DIR$/src/firebase/config.js" />
         <option value="$PROJECT_DIR$/src/screens/Auth/LoadingScreen.js" />
         <option value="$PROJECT_DIR$/src/navigation/MainAppNavigator.js" />
+        <option value="$PROJECT_DIR$/src/components/lib/functions/auth/validate.js" />
         <option value="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" />
         <option value="$PROJECT_DIR$/src/components/Auth/SignUpForm.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -218,27 +213,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="buttons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
@@ -310,12 +284,12 @@
       <workItem from="1568111633406" duration="473000" />
       <workItem from="1568112547235" duration="96000" />
       <workItem from="1568112712025" duration="17317000" />
-      <workItem from="1568202508336" duration="4309000" />
+      <workItem from="1568202508336" duration="5696000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22195000" />
+    <option name="totallyTimeSpent" value="23582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1017" y="27" width="903" height="1053" extended-state="0" />
@@ -347,13 +321,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/navigation/AppNavigator.web.js" />
     <entry file="file://$PROJECT_DIR$/src/navigation/MainTabNavigator.js" />
     <entry file="file://$PROJECT_DIR$/src/navigation/AppNavigator.js" />
@@ -505,10 +472,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/lib/functions/auth/validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-946">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="440">
+          <caret line="113" column="40" selection-start-line="113" selection-start-column="40" selection-end-line="113" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -517,11 +494,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Auth/SignUpForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
+        <state relative-caret-position="528">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -5,6 +5,7 @@ import {
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Button from '../../components/common/buttons/Button';
 import SignUpForm from '../../components/Auth/SignUpForm';
+import validate from '../../components/lib/functions/auth/validate';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,6 +31,13 @@ const styles = StyleSheet.create({
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class LoginScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      errors: {},
+    };
+  }
+
   back=() => {
     this.props.navigation.navigate('Welcome');
   };
@@ -44,10 +52,21 @@ export default class LoginScreen extends React.Component {
       password,
       agree,
     };
-    console.log(user);
+
+    /* we import the validate function to check
+    *  whether email and password are empty
+    * */
+    const { errors, isValid } = validate(user);
+    if (!isValid) {
+      this.setState({ errors });
+    } else if (isValid) {
+      this.setState({ errors: {} });
+      console.log(user);
+    }
   }
 
   render() {
+    const { errors } = this.state;
     return (
       <Container>
         <Header transparent>
@@ -92,7 +111,7 @@ export default class LoginScreen extends React.Component {
             </Text>
           </Body>
           <View style={styles.formContainer}>
-            <SignUpForm signUp={this.signUp} />
+            <SignUpForm errors={errors} signUp={this.signUp} />
             <Text>{' '}</Text>
 
           </View>
