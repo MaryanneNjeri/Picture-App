@@ -1,11 +1,16 @@
 import React from 'react';
 import {
-  Content, Container, Text, Header, Left, Icon, Body, Title, View,
+  Content, Container, Text, Header, Left, Icon, Body, Title, View, Toast,
 } from 'native-base';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 import Button from '../../components/common/buttons/Button';
 import SignUpForm from '../../components/Auth/SignUpForm';
 import validate from '../../components/lib/functions/auth/validate';
+import { signUp } from '../../redux/signup/action';
+import Loader from '../../components/general/Loader';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +35,7 @@ const styles = StyleSheet.create({
 });
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class LoginScreen extends React.Component {
+class SignUpScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,13 +51,11 @@ export default class LoginScreen extends React.Component {
     this.props.navigation.navigate('Login');
   };
 
-  signUp=(email, password, agree) => {
+  signUp=(email, password) => {
     const user = {
       email,
       password,
-      agree,
     };
-
     /* we import the validate function to check
     *  whether email and password are empty
     * */
@@ -60,13 +63,35 @@ export default class LoginScreen extends React.Component {
     if (!isValid) {
       this.setState({ errors });
     } else if (isValid) {
+      const { dispatch } = this.props;
       this.setState({ errors: {} });
-      console.log(user);
+      dispatch(signUp(email, password)).then((body) => {
+        console.log(body);
+      });
     }
   }
 
   render() {
     const { errors } = this.state;
+    const { loading, error } = this.props;
+    if (loading) {
+      return (
+        <Loader />
+      );
+    }
+    if (error) {
+      return (
+        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+          <Text>
+            {' '}
+              An error occurred!
+
+            {error.message}
+          </Text>
+        </View>
+
+      );
+    }
     return (
       <Container>
         <Header transparent>
@@ -132,3 +157,14 @@ export default class LoginScreen extends React.Component {
     );
   }
 }
+
+SignUpScreen.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  loading: state.details.loading,
+  error: state.details.error,
+});
+
+export default connect(mapStateToProps)(SignUpScreen);
