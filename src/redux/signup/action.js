@@ -26,8 +26,9 @@ export function signUp(email, password) {
 
       .then((body) => {
         dispatch(signupSuccess(body));
-        AsyncStorage.setItem('token', body.stsTokenManager.accessToken);
-        console.log(body);
+        body.user.getIdToken().then((response) => {
+          AsyncStorage.setItem('token', response);
+        });
         return body;
       })
       .catch(error => dispatch(signupFailure(error)));

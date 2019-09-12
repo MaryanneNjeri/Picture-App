@@ -1,4 +1,4 @@
-import { SIGNUP_FAILURE, SIGNUP_SUCCESS, SIGNUP_BEGIN } from './action';
+import { LOGIN_FAILURE, LOGIN_SUCCESS, LOGIN_BEGIN } from './action';
 
 const initialState = {
   item: {},
@@ -7,21 +7,21 @@ const initialState = {
 };
 
 
-export default function signUpReducer(state = initialState, action) {
+export default function loginReducer(state = initialState, action) {
   switch (action.type) {
-    case SIGNUP_BEGIN:
+    case LOGIN_BEGIN:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case SIGNUP_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         ...state,
         loading: false,
-        item: action.payload.details,
+        item: action.payload.body,
       };
-    case SIGNUP_FAILURE:
+    case LOGIN_FAILURE:
       return {
         ...state,
         loading: false,

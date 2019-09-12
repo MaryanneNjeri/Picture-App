@@ -57,9 +57,8 @@ export default class WelcomeScreen extends React.Component {
               {' '}
 Please login or sign up to continue using this app
             </Text>
-
             <View style={styles.imageContainer}>
-              <Image resizeMode="contain" style={styles.logo} source={require('../../../assets/images/welcome.jpg')} />
+              <Image resizeMode="contain" style={styles.logo} source={require('../../../assets/images/Landing.gif')} />
             </View>
 
             <Text note style={{ fontSize: 12 }}> Enter via social networks</Text>

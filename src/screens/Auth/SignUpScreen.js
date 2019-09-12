@@ -93,11 +93,6 @@ class SignUpScreen extends React.Component {
     }
   };
 
-  redirect=() => {
-    this.props.navigation.dispatch('SignUp');
-  }
-
-
   render() {
     const { errors } = this.state;
     const { loading } = this.props;

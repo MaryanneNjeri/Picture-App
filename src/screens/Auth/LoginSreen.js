@@ -1,10 +1,15 @@
 import React from 'react';
 import {
-  Content, Container, Text, Header, Left, Icon, Body, Title, View,
+  Content, Container, Text, Header, Left, Icon, Body, Title, View, Toast,
 } from 'native-base';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { AsyncStorage } from 'react-native-web';
 import Button from '../../components/common/buttons/Button';
 import LoginForm from '../../components/Auth/LoginForm';
+import validate from '../../components/lib/functions/auth/validate';
+import { logIn } from '../../redux/login/action';
+import Loader from '../../components/general/Loader';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,7 +34,14 @@ const styles = StyleSheet.create({
 });
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      errors: {},
+    };
+  }
+
   back=() => {
     this.props.navigation.navigate('Welcome');
   };
@@ -38,11 +50,48 @@ export default class LoginScreen extends React.Component {
     this.props.navigation.navigate('SignUp');
   };
 
-  logIn=() => {
-    this.props.navigation.navigate('Landing');
+  logIn= (email, password) => {
+    const user = {
+      email, password,
+    };
+    const { dispatch, error } = this.props;
+    const { errors, isValid } = validate(user);
+    if (!isValid) {
+      this.setState({ errors });
+    } else if (isValid) {
+      this.setState({ errors: {} });
+      dispatch(logIn(email, password)).then((response) => {
+        if (error !== null) {
+          Toast.show({
+            text: ' Successfully Login',
+            type: 'success',
+            position: 'top',
+            duration: 3000,
+          });
+          this.props.navigation.navigate('App');
+        } else {
+          Toast.show({
+            text: `${response.payload.error}`,
+            type: 'danger',
+            position: 'top',
+            duration: 3000,
+
+          });
+
+          this.props.navigation.navigate('Auth');
+        }
+      });
+    }
   };
 
   render() {
+    const { errors } = this.state;
+    const { loading } = this.props;
+    if (loading) {
+      return (
+        <Loader />
+      );
+    }
     return (
       <Container>
         <Header transparent>
@@ -87,7 +136,7 @@ export default class LoginScreen extends React.Component {
             </Text>
           </Body>
           <View style={styles.formContainer}>
-            <LoginForm />
+            <LoginForm errors={errors} logIn={this.logIn} />
             <Text>{' '}</Text>
 
           </View>
@@ -97,8 +146,7 @@ export default class LoginScreen extends React.Component {
               note
               style={{ fontSize: 12 }}
             >
-
-                Don't have an account ?
+              Don't have an account ?
             </Text>
             <TouchableOpacity onPress={this.signUp}><Text style={{ color: '#008ae6', fontSize: 12 }} note>Sign Up</Text></TouchableOpacity>
 
@@ -109,3 +157,8 @@ export default class LoginScreen extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  loading: state.body.loading,
+  error: state.body.error,
+});
+export default connect(mapStateToProps)(LoginScreen);
