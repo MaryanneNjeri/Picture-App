@@ -21,16 +21,9 @@ export const signupFailure = error => ({
 
 export function signUp(email, password) {
   return (dispatch) => {
-    function handleErrors(response) {
-      if (!response.ok) {
-        alert(response.statusText);
-      }
-      return response;
-    }
-
     dispatch(signupBegin());
     return app.auth().createUserWithEmailAndPassword(email, password)
-      .then(handleErrors)
+
       .then((body) => {
         dispatch(signupSuccess(body));
         AsyncStorage.setItem('token', body.stsTokenManager.accessToken);

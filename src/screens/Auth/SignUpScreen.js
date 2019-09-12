@@ -5,12 +5,12 @@ import {
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import Button from '../../components/common/buttons/Button';
 import SignUpForm from '../../components/Auth/SignUpForm';
 import validate from '../../components/lib/functions/auth/validate';
 import { signUp } from '../../redux/signup/action';
 import Loader from '../../components/general/Loader';
+import Error from '../../components/general/Error';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 
   },
 
+
 });
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -52,44 +53,57 @@ class SignUpScreen extends React.Component {
   };
 
   signUp=(email, password) => {
-    const user = {
+    const { error } = this.props;
+    const { navigate } = this.props.navigation;
+    const user1 = {
       email,
       password,
     };
     /* we import the validate function to check
     *  whether email and password are empty
     * */
-    const { errors, isValid } = validate(user);
+    const { errors, isValid } = validate(user1);
     if (!isValid) {
       this.setState({ errors });
     } else if (isValid) {
       const { dispatch } = this.props;
       this.setState({ errors: {} });
       dispatch(signUp(email, password)).then((body) => {
-        console.log(body);
+        if (error !== null) {
+          Toast.show({
+            text: ' Successfully Sign up',
+            type: 'success',
+            position: 'top',
+            duration: 3000,
+          });
+
+          navigate('App');
+        } else {
+          Toast.show({
+            text: `${body.payload.error}`,
+            type: 'danger',
+            position: 'top',
+            duration: 3000,
+
+          });
+
+          navigate('Auth');
+        }
       });
     }
+  };
+
+  redirect=() => {
+    this.props.navigation.dispatch('SignUp');
   }
+
 
   render() {
     const { errors } = this.state;
-    const { loading, error } = this.props;
+    const { loading } = this.props;
     if (loading) {
       return (
         <Loader />
-      );
-    }
-    if (error) {
-      return (
-        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-          <Text>
-            {' '}
-              An error occurred!
-
-            {error.message}
-          </Text>
-        </View>
-
       );
     }
     return (
