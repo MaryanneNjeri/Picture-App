@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Loader extends React.Component {
   render() {
-    const { error, redirect } = this.props;
+    const { error } = this.props;
     return (
 
       <View style={{

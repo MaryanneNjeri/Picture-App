@@ -92,7 +92,6 @@ export default class LoginScreen extends React.Component {
 
           </View>
           <View style={{ alignItems: 'center' }}>
-            <Button signUp onPress={this.logIn}>Login</Button>
             <Text>{' '}</Text>
             <Text
               note

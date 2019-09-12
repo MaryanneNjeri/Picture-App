@@ -2,11 +2,21 @@ import React from 'react';
 import { StyleSheet, Image, Dimensions } from 'react-native';
 import {
 
-  Container, Content, Text, Title, View,
+  Container, Content, Text, Title, View, Icon, Header, Left, ActionSheet, Toast,
 } from 'native-base';
 import Button from '../../components/common/buttons/Button';
+import { logout } from '../../components/lib/functions/auth/logout';
 
 const { width, height } = Dimensions.get('window');
+const Buttons = [
+
+  { text: 'Logout', icon: 'power-off', iconColor: '#fa213b' },
+  { text: 'Cancel', icon: 'close', iconColor: '#25de5b' },
+
+];
+
+const CANCEL_INDEX = 1;
+
 const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
@@ -25,30 +35,57 @@ const styles = StyleSheet.create({
 });
 // eslint-disable-next-line react/prefer-stateless-function
 export default class LandingScreen extends React.Component {
-  render() {
-    return (
-      <Container>
-        <Content>
-          <View style={styles.imageContainer}>
-            <Image resizeMode="contain" style={styles.image} source={require('../../../assets/images/welcome.jpg')} />
-            <Title style={{ color: '#404040', fontSize: 30 }}>Karibu!</Title>
-            <Text>{' '}</Text>
-            <Text
-              note
-              style={{ fontSize: 12 }}
-            >
+    openMenu=() => {
+      ActionSheet.show(
+        {
+          options: Buttons,
+          cancelButtonIndex: CANCEL_INDEX,
+          title: 'Settings',
+        },
+        (buttonIndex) => {
+          if (buttonIndex === 0) {
+            logout();
+            Toast.show({
+              text: 'Successfully Logged out',
+              position: 'top',
+              duration: 3000,
+
+            });
+            this.props.navigation.navigate('Auth');
+          }
+        },
+      );
+    };
+
+    render() {
+      return (
+        <Container>
+          <Header transparent>
+            <Left>
+              <Icon type="Feather" name="menu" onPress={this.openMenu} style={{ color: '#008ae6' }} />
+            </Left>
+          </Header>
+          <Content>
+            <View style={styles.imageContainer}>
+              <Image resizeMode="contain" style={styles.image} source={require('../../../assets/images/loading.jpg')} />
+              <Title style={{ color: '#404040', fontSize: 30 }}>Karibu!</Title>
+              <Text>{' '}</Text>
+              <Text
+                note
+                style={{ fontSize: 12 }}
+              >
 Welcome to the story app
-            </Text>
-            <Text>
-              {' '}
-              {' '}
-            </Text>
-            <View style={styles.buttonContainer}>
-              <Button signUp>Let's go</Button>
+              </Text>
+              <Text>
+                {' '}
+                {' '}
+              </Text>
+              <View style={styles.buttonContainer}>
+                <Button signUp>Let's go</Button>
+              </View>
             </View>
-          </View>
-        </Content>
-      </Container>
-    );
-  }
+          </Content>
+        </Container>
+      );
+    }
 }

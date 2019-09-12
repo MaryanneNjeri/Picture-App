@@ -10,7 +10,7 @@ import SignUpForm from '../../components/Auth/SignUpForm';
 import validate from '../../components/lib/functions/auth/validate';
 import { signUp } from '../../redux/signup/action';
 import Loader from '../../components/general/Loader';
-import Error from '../../components/general/Error';
+
 
 const styles = StyleSheet.create({
   container: {

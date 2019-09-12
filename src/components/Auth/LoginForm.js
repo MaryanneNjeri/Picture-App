@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, CheckBox, View } from 'native-base';
 import FormInput from '../common/form/FormInput';
+import Button from '../common/buttons/Button';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class LoginForm extends React.Component {
@@ -12,6 +13,8 @@ export default class LoginForm extends React.Component {
           standard
           regular
           placeholder="Email"
+          onChangeText={email => this.setState({ email })}
+
         />
         <Text>{' '}</Text>
         <FormInput
@@ -19,6 +22,8 @@ export default class LoginForm extends React.Component {
           regular
           placeholder="Password"
           secureTextEntry
+          onChangeText={password => this.setState({ password })}
+
         />
         <Text>{' '}</Text>
         <View style={{ flexDirection: 'row' }}>
@@ -39,6 +44,8 @@ export default class LoginForm extends React.Component {
           </Text>
           <Text>Forgot Password ?</Text>
         </View>
+        <Button signUp onPress={this.logIn}>Login</Button>
+
 
       </View>
 
