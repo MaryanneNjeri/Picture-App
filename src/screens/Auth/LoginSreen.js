@@ -4,12 +4,12 @@ import {
 } from 'native-base';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { AsyncStorage } from 'react-native-web';
 import Button from '../../components/common/buttons/Button';
 import LoginForm from '../../components/Auth/LoginForm';
 import validate from '../../components/lib/functions/auth/validate';
 import { logIn } from '../../redux/login/action';
 import Loader from '../../components/general/Loader';
+import { signInWithFacebook } from '../../components/lib/functions/auth/facebook';
 
 const styles = StyleSheet.create({
   container: {
@@ -61,7 +61,7 @@ class LoginScreen extends React.Component {
     } else if (isValid) {
       this.setState({ errors: {} });
       dispatch(logIn(email, password)).then((response) => {
-        if (error !== null) {
+        if (error === {}) {
           Toast.show({
             text: ' Successfully Login',
             type: 'success',
@@ -69,7 +69,7 @@ class LoginScreen extends React.Component {
             duration: 3000,
           });
           this.props.navigation.navigate('App');
-        } else {
+        } else if (response.payload) {
           Toast.show({
             text: `${response.payload.error}`,
             type: 'danger',
@@ -82,6 +82,10 @@ class LoginScreen extends React.Component {
         }
       });
     }
+  };
+
+  facebookSignin=() => {
+    signInWithFacebook();
   };
 
   render() {
@@ -123,7 +127,7 @@ class LoginScreen extends React.Component {
               <Button twitter icon="twitter" iconColor="white" size={40} />
               <Text>{' '}</Text>
               <Text>{' '}</Text>
-              <Button facebook icon="facebook-square" iconColor="white" size={40} />
+              <Button facebook icon="facebook-square" iconColor="white" size={40} onPress={this.facebookSignin} />
             </View>
             <Text>{' '}</Text>
             <Text>{' '}</Text>

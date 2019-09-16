@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 export default class LoadingScreen extends React.Component {
   componentDidMount() {
     app.auth().onAuthStateChanged((user) => {
+
       this.props.navigation.navigate(user ? 'App' : 'Auth');
     });
   }
