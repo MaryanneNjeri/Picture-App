@@ -5,6 +5,15 @@ export default {
 
     },
   },
+  floating: {
+    input: {
+      fontSize: 15,
+    },
+    label: {
+      fontWeight: '200',
+      fontSize: 14,
+    },
+  },
 
   roundedInput: {
     input: {

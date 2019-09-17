@@ -57,6 +57,11 @@ export default class LandingScreen extends React.Component {
       );
     };
 
+
+    next=() => {
+      this.props.navigation.navigate('SetProfile');
+    }
+
     render() {
       return (
         <Container>
@@ -67,7 +72,7 @@ export default class LandingScreen extends React.Component {
           </Header>
           <Content>
             <View style={styles.imageContainer}>
-              <Image resizeMode="contain" style={styles.image} source={require('../../../assets/images/loading.jpg')} />
+              <Image resizeMode="contain" style={styles.image} source={require('../../../assets/images/landing.gif')} />
               <Title style={{ color: '#404040', fontSize: 30 }}>Karibu!</Title>
               <Text>{' '}</Text>
               <Text
@@ -81,7 +86,7 @@ Welcome to the story app
                 {' '}
               </Text>
               <View style={styles.buttonContainer}>
-                <Button signUp>Let's go</Button>
+                <Button signUp onPress={this.next}>Let's go</Button>
               </View>
             </View>
           </Content>
