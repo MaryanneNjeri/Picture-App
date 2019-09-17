@@ -19,7 +19,6 @@ export async function signInWithFacebook() {
 
       await app.auth().currentUser.getIdToken(true).then((result) => {
         AsyncStorage.setItem('token', result);
-        // console.log(result);
       }).catch((error) => {
         Alert.alert('Error', `${error}`);
       });

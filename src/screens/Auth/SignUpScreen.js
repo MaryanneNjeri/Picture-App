@@ -121,6 +121,7 @@ class SignUpScreen extends React.Component {
             </Text>
             <Text>{' '}</Text>
             <Text>{' '}</Text>
+
             <Text
               note
               style={{ fontSize: 12 }}
@@ -129,7 +130,8 @@ class SignUpScreen extends React.Component {
               Enter via social networks
             </Text>
             <View style={styles.buttonContainer}>
-              <Button twitter icon="twitter" iconColor="white" size={40} />
+
+              <Button googleButton icon="google-plus" iconColor="white" size={40} />
               <Text>{' '}</Text>
               <Text>{' '}</Text>
               <Button facebook icon="facebook-square" iconColor="white" size={40} />

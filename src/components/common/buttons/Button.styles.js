@@ -36,7 +36,7 @@ export default {
       width: 150,
       height: 50,
       color: '#ffffff',
-      backgroundColor: '#0099ff',
+      backgroundColor: '#cc2900',
     },
     text: {
       color: '#ffffff',
@@ -47,6 +47,25 @@ export default {
 
     },
   },
+  googleButton: {
+    button: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 150,
+      height: 50,
+      color: '#ffffff',
+      backgroundColor: '#cc2900',
+    },
+    text: {
+      color: '#ffffff',
+      fontWeight: '200',
+    },
+    icon: {
+      position: 'absolute',
+
+    },
+  },
+
   secondary: {
     button: {
       backgroundColor: 'white',

@@ -10,6 +10,7 @@ import validate from '../../components/lib/functions/auth/validate';
 import { logIn } from '../../redux/login/action';
 import Loader from '../../components/general/Loader';
 import { signInWithFacebook } from '../../components/lib/functions/auth/facebook';
+import { signInWithGoogle } from '../../components/lib/functions/auth/googleSignIn';
 
 const styles = StyleSheet.create({
   container: {
@@ -88,6 +89,10 @@ class LoginScreen extends React.Component {
     signInWithFacebook();
   };
 
+  googleSignIn=() => {
+    signInWithGoogle();
+  };
+
   render() {
     const { errors } = this.state;
     const { loading } = this.props;
@@ -124,7 +129,7 @@ class LoginScreen extends React.Component {
               Enter via social networks
             </Text>
             <View style={styles.buttonContainer}>
-              <Button twitter icon="twitter" iconColor="white" size={40} />
+              <Button googleButton icon="google-plus" iconColor="white" size={40} onPress={this.googleSignIn} />
               <Text>{' '}</Text>
               <Text>{' '}</Text>
               <Button facebook icon="facebook-square" iconColor="white" size={40} onPress={this.facebookSignin} />
