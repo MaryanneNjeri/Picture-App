@@ -4,6 +4,8 @@ import {
 } from 'native-base';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Button from '../../components/common/buttons/Button';
+import { signInWithGoogle } from '../../components/lib/functions/auth/googleSignIn';
+import { signInWithFacebook } from '../../components/lib/functions/auth/facebook';
 
 const styles = StyleSheet.create({
   container: {
@@ -40,6 +42,14 @@ export default class WelcomeScreen extends React.Component {
     this.props.navigation.navigate('SignUp');
   };
 
+  facebookSignIn=() => {
+    signInWithFacebook();
+  };
+
+  googleSignIn=() => {
+    signInWithGoogle();
+  }
+
   render() {
     return (
       <Container>
@@ -64,10 +74,10 @@ Please login or sign up to continue using this app
             <Text note style={{ fontSize: 12 }}> Enter via social networks</Text>
           </Body>
           <View style={styles.buttonContainer}>
-            <Button twitter icon="twitter" iconColor="white" size={40} />
+            <Button googleButton icon="google-plus" iconColor="white" size={40} onPress={this.googleSignIn} />
             <Text>{' '}</Text>
             <Text>{' '}</Text>
-            <Button facebook icon="facebook-square" iconColor="white" size={40} />
+            <Button facebook icon="facebook-square" iconColor="white" size={40} onPress={this.facebookSignIn} />
           </View>
           <Text>{' '}</Text>
           <Body>

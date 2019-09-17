@@ -10,6 +10,8 @@ import SignUpForm from '../../components/Auth/SignUpForm';
 import validate from '../../components/lib/functions/auth/validate';
 import { signUp } from '../../redux/signup/action';
 import Loader from '../../components/general/Loader';
+import { signInWithGoogle } from '../../components/lib/functions/auth/googleSignIn';
+import { signInWithFacebook } from '../../components/lib/functions/auth/facebook';
 
 
 const styles = StyleSheet.create({
@@ -93,6 +95,14 @@ class SignUpScreen extends React.Component {
     }
   };
 
+  facebookSignIn=() => {
+    signInWithFacebook();
+  };
+
+  googleSignIn=() => {
+    signInWithGoogle();
+  }
+
   render() {
     const { errors } = this.state;
     const { loading } = this.props;
@@ -130,11 +140,11 @@ class SignUpScreen extends React.Component {
               Enter via social networks
             </Text>
             <View style={styles.buttonContainer}>
+              <Button googleButton icon="google-plus" iconColor="white" size={40} onPress={this.facebookSignIn} />
 
-              <Button googleButton icon="google-plus" iconColor="white" size={40} />
               <Text>{' '}</Text>
               <Text>{' '}</Text>
-              <Button facebook icon="facebook-square" iconColor="white" size={40} />
+              <Button facebook icon="facebook-square" iconColor="white" size={40} onPress={this.googleSignIn} />
             </View>
             <Text>{' '}</Text>
             <Text>{' '}</Text>
