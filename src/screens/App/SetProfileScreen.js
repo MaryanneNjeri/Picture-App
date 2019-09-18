@@ -62,10 +62,6 @@ export default class setProfileScreen extends React.Component {
           <View>
             <Body style={styles.body}>
               <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Edit Profile</Text>
-              <Text>
-                {' '}
-              </Text>
-              <Text note style={{ fontSize: 12 }}> edit your profile here </Text>
             </Body>
             <View style={styles.formContainer}>
               <EditProfileForm />

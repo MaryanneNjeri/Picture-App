@@ -1,8 +1,49 @@
-import { createStackNavigator } from 'react-navigation';
+import React from 'react';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import LandingScreen from '../../screens/App/LandingScreen';
 import SetProfileScreen from '../../screens/App/SetProfileScreen';
+import ProfileScreen from '../../screens/App/ProfileScreen';
+import HomeScreen from '../../screens/App/HomeScreen';
+import UsersListScreen from '../../screens/App/UsersListScreen';
 
 const AppNavigator = createStackNavigator({
+  Home: {
+    screen:
+    createBottomTabNavigator({
+      Home: HomeScreen,
+      Users: UsersListScreen,
+      Profile: ProfileScreen,
+    },
+    {
+      defaultNavigationOptions: ({ navigation }) => ({
+
+        tabBarIcon: ({ tintColor }) => {
+          const { routeName } = navigation.state;
+          const IconComponent = Ionicons;
+          let iconName;
+          if (routeName === 'Home') {
+            iconName = 'ios-home';
+          } else if (routeName === 'Users') {
+            iconName = 'ios-people';
+          } else if (routeName === 'Profile') {
+            iconName = 'ios-person';
+          }
+          // You can return any component that you like here!
+          return <IconComponent name={iconName} size={25} color={tintColor} />;
+        },
+
+      }),
+
+      tabBarOptions: {
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+      },
+    }),
+    navigationOptions: {
+      header: null,
+    },
+  },
   Landing: {
     screen: LandingScreen,
     navigationOptions: { header: null },

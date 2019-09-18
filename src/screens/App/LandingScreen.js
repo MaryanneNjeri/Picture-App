@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
 
   },
   image: {
-    width: width - 50,
-    height: height / 1.5,
+    width: width - 20,
+    height: height / 1.7,
   },
 });
 // eslint-disable-next-line react/prefer-stateless-function
@@ -72,7 +72,7 @@ export default class LandingScreen extends React.Component {
           </Header>
           <Content>
             <View style={styles.imageContainer}>
-              <Image resizeMode="contain" style={styles.image} source={require('../../../assets/images/landing.gif')} />
+              <Image style={styles.image} source={require('../../../assets/images/landing.gif')} />
               <Title style={{ color: '#404040', fontSize: 30 }}>Karibu!</Title>
               <Text>{' '}</Text>
               <Text
