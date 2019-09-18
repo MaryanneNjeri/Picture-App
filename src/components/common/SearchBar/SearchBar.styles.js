@@ -1,6 +1,5 @@
 export default {
-
-  roundedInput: {
+    roundedInput: {
     item: {
       padding: 5,
       backgroundColor: '#f2f2f2',
