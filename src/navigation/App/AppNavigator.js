@@ -8,6 +8,7 @@ import HomeScreen from '../../screens/App/HomeScreen';
 import UsersListScreen from '../../screens/App/UsersListScreen';
 import AccountScreen from '../../screens/App/AccountScreen';
 import ResetPasswordScreen from '../../screens/App/ResetPasswordScreen';
+import NewPostScreen from '../../screens/App/NewPostScreen';
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -55,6 +56,10 @@ const AppNavigator = createStackNavigator({
   },
   SetProfile: {
     screen: SetProfileScreen,
+    navigationOptions: { header: null },
+  },
+  NewPost: {
+    screen: NewPostScreen,
     navigationOptions: { header: null },
   },
   ResetPassword: {

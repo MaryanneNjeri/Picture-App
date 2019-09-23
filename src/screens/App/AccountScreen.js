@@ -26,7 +26,7 @@ export default class AccountScreen extends React.Component {
     this.mounted = true;
     if (this.mounted === true) {
       this.getPermissionAsync();
-      this.getCameraPermission()
+      this.getCameraPermission();
     }
   }
 
@@ -59,11 +59,7 @@ export default class AccountScreen extends React.Component {
         aspect: [4, 3],
       });
       if (!result.cancelled) {
-        console.log(result);
-        // const filename = result.uri.split('/').pop();
-        // const match = /\.(\w+)$/.exec(filename);
-        // const type = match ? `image/${match[1]}` : 'image';
-        // formData.append('photoURL', { uri: result.uri, name: filename, type });
+        this.props.navigation.navigate('NewPost', { image: result.uri });
       }
     };
 
@@ -74,7 +70,7 @@ export default class AccountScreen extends React.Component {
         aspect: [4, 3],
       });
       if (!result.cancelled) {
-        console.log(result);
+        this.props.navigation.navigate('NewPost', { image: result.uri });
       }
     };
 
