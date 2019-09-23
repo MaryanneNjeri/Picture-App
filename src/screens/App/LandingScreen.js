@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     height: height / 1.7,
   },
 });
+
 // eslint-disable-next-line react/prefer-stateless-function
 export default class LandingScreen extends React.Component {
     openMenu=() => {

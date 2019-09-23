@@ -97,20 +97,55 @@ export default {
   },
   success: {
     button: {
-      width: 100,
+      width: width / 2.4,
       backgroundColor: '#9ACD32',
-      color: 'white',
+      // borderWidth: 2,
       fontWeight: '200',
       alignItems: 'center',
       justifyContent: 'center',
+      // borderColor: '#9ACD32',
+      borderRadius: 30,
+
     },
     text: {
-      color: '#ffffff',
+      color: 'white',
       fontWeight: '200',
     },
-
-
   },
+  account: {
+    button: {
+      width: width / 2.2,
+      backgroundColor: '#008ae6',
+      // borderWidth: 2,
+      alignItems: 'center',
+      justifyContent: 'center',
+      // borderColor: '#ff794d',
+      borderRadius: 30,
+      padding: 10,
+    },
+    text: {
+      color: 'white',
+      fontWeight: '200',
+    },
+  },
+  logout: {
+    button: {
+      width: width / 2.5,
+      backgroundColor: '#ff4d4d',
+      // borderWidth: 2,
+      fontWeight: '200',
+      alignItems: 'center',
+      justifyContent: 'center',
+      // borderColor: '#ff4d4d',
+      borderRadius: 30,
+    },
+    text: {
+      color: 'white',
+      fontWeight: '200',
+    },
+  },
+
+
   signUp: {
     button: {
       textAlign: 'center',

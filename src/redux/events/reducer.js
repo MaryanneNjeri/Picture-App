@@ -1,7 +1,7 @@
 import { EVENTS_BEGIN, EVENTS_FAILURE, EVENTS_SUCCESS } from './action';
 
 const initialState = {
-  item: {},
+  items: {},
   loading: false,
   error: null,
 };
@@ -19,14 +19,14 @@ export default function eventsReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        item: action.payload.events,
+        items: action.payload.events,
       };
     case EVENTS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
-        item: {},
+        items: {},
 
       };
     default:

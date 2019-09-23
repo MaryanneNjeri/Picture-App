@@ -3,6 +3,7 @@ import {
   Header, Icon, Left, Right, Text,
 } from 'native-base';
 
+// eslint-disable-next-line react/prefer-stateless-function
 export default class HeaderComponent extends React.Component {
   render() {
     return (

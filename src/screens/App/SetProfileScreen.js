@@ -1,9 +1,12 @@
 import React from 'react';
-import { StyleSheet, Image, Dimensions } from 'react-native';
+import {
+  StyleSheet, Image, Dimensions, Alert,
+} from 'react-native';
 import {
   Content, Container, Text, View, Body, Icon, Left,
 } from 'native-base';
 import EditProfileForm from '../../components/Auth/EditProfileForm';
+import app from '../../firebase/config';
 
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -45,32 +48,44 @@ const styles = StyleSheet.create({
 
   },
 });
+
 // eslint-disable-next-line react/prefer-stateless-function
 export default class setProfileScreen extends React.Component {
-  render() {
-    return (
-      <Container>
-        <Content>
-          <View style={styles.containerStyle}>
-            <View style={styles.slider}>
-              <Left>
-                <Icon type="Feather" name="arrow-left" />
-              </Left>
-              <Image style={styles.image} source={require('../../../assets/images/profile.png')} />
-            </View>
-          </View>
-          <View>
-            <Body style={styles.body}>
-              <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Edit Profile</Text>
-            </Body>
-            <View style={styles.formContainer}>
-              <EditProfileForm />
-            </View>
-          </View>
+editProfile=async (userDetails) => {
+  const user = app.auth().currentUser;
+  await user.updateProfile(userDetails).then((response) => {
+    console.log(response);
+    this.props.navigation.navigate('SetProfile');
+  }).catch((error) => {
+    Alert.alert('An Error Occurred', error);
+  });
+};
 
 
-        </Content>
-      </Container>
-    );
-  }
+render() {
+  return (
+    <Container>
+      <Content>
+        <View style={styles.containerStyle}>
+          <View style={styles.slider}>
+            <Left>
+              <Icon type="Feather" name="arrow-left" />
+            </Left>
+            <Image style={styles.image} source={require('../../../assets/images/profile.png')} />
+          </View>
+        </View>
+        <View>
+          <Body style={styles.body}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Edit Profile</Text>
+          </Body>
+          <View style={styles.formContainer}>
+            <EditProfileForm editProfile={this.editProfile} />
+          </View>
+        </View>
+
+
+      </Content>
+    </Container>
+  );
+}
 }

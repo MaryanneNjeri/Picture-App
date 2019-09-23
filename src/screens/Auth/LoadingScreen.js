@@ -23,11 +23,24 @@ const styles = StyleSheet.create({
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class LoadingScreen extends React.Component {
-  componentDidMount() {
-    app.auth().onAuthStateChanged((user) => {
-      this.props.navigation.navigate(user ? 'App' : 'Auth');
-    });
+  constructor(props) {
+    super(props);
+    this.mounted = false;
   }
+
+  componentDidMount() {
+    this.mounted = true;
+    if (this.mounted === true) {
+      app.auth().onAuthStateChanged((user) => {
+        this.props.navigation.navigate(user ? 'App' : 'Auth');
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
 
   render() {
     return (

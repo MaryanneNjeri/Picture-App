@@ -6,6 +6,8 @@ import SetProfileScreen from '../../screens/App/SetProfileScreen';
 import ProfileScreen from '../../screens/App/ProfileScreen';
 import HomeScreen from '../../screens/App/HomeScreen';
 import UsersListScreen from '../../screens/App/UsersListScreen';
+import AccountScreen from '../../screens/App/AccountScreen';
+import ResetPasswordScreen from '../../screens/App/ResetPasswordScreen';
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -13,6 +15,7 @@ const AppNavigator = createStackNavigator({
     createBottomTabNavigator({
       Home: HomeScreen,
       Users: UsersListScreen,
+      Account: AccountScreen,
       Profile: ProfileScreen,
     },
     {
@@ -26,6 +29,8 @@ const AppNavigator = createStackNavigator({
             iconName = 'ios-home';
           } else if (routeName === 'Users') {
             iconName = 'ios-people';
+          } else if (routeName === 'Account') {
+            iconName = 'ios-albums';
           } else if (routeName === 'Profile') {
             iconName = 'ios-person';
           }
@@ -50,6 +55,10 @@ const AppNavigator = createStackNavigator({
   },
   SetProfile: {
     screen: SetProfileScreen,
+    navigationOptions: { header: null },
+  },
+  ResetPassword: {
+    screen: ResetPasswordScreen,
     navigationOptions: { header: null },
   },
 

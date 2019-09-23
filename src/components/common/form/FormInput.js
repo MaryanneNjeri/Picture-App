@@ -28,6 +28,7 @@ export default ({
       </Label>
 
       <Input
+        keyboardType={props.keyboardType}
         placeholder={props.placeholder}
         placeholderTextColor={props.placeholderTextColor}
         onChangeText={onChangeText}

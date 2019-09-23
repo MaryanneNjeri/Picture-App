@@ -8,6 +8,8 @@ import SearchBar from '../../components/common/SearchBar/SearchBar';
 import HeaderComponent from '../../components/Home/HeaderComponent';
 import PopularEventsComponent from '../../components/Home/PopularEventsComponent';
 import { fetchEvents } from '../../redux/events/action';
+import Loader from '../../components/general/Loader';
+import Error from '../../components/general/Error';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,16 +22,33 @@ const styles = StyleSheet.create({
 
 // eslint-disable-next-line react/prefer-stateless-function
 class HomeScreen extends React.Component {
-  // renders anything inside the calibraces before the component is rendered
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.mounted = false;
+  }
+
+  async componentDidMount() {
+    this.mounted = true;
     const { dispatch } = this.props;
-    dispatch(fetchEvents());
+    if (this.mounted === true) {
+      await dispatch(fetchEvents());
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   render() {
-    const { events } = this.props;
-    console.log(events);
-
+    const { event, loading, error } = this.props;
+    // console.log(event);
+    if (loading) {
+      return (
+        <Loader />);
+    }
+    if (error) {
+      return (<Error error={error} />);
+    }
     return (
       <Container>
         <HeaderComponent />
@@ -45,15 +64,16 @@ class HomeScreen extends React.Component {
             />
             <Text>{' '}</Text>
             <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#4d4d4d' }}>Popular Events</Text>
-            <PopularEventsComponent />
           </View>
+          <PopularEventsComponent events={event} />
+
         </Content>
       </Container>
     );
   }
 }
 const mapStateToProps = state => ({
-  events: state.events.items,
+  event: state.events.items,
   loading: state.events.loading,
   error: state.events.error,
 });
