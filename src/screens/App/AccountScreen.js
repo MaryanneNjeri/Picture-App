@@ -1,12 +1,15 @@
 import React from 'react';
 import {
-  Container, Content, Header, Text, View, Body, DeckSwiper, Card, CardItem, Thumbnail, Left,
+  Container, Content, Header, Text, View, Body,
 } from 'native-base';
-import { Dimensions, Image, StyleSheet } from 'react-native';
+import {
+  Dimensions, Image, StyleSheet, ScrollView,
+} from 'react-native';
 import _ from 'lodash';
 import Button from '../../components/common/buttons/Button';
 import getStories from '../../components/lib/functions/app/getStories';
 import Fire from '../../firebase/config';
+import Loader from '../../components/general/Loader';
 
 const { width, height } = Dimensions.get('window');
 
@@ -35,6 +38,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
   },
+  box: {
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+
+  },
+  image: {
+    alignSelf: 'center',
+    width: 180,
+    height: 180,
+    padding: 10,
+    borderColor: 'white',
+    borderWidth: 5,
+  },
 
 });
 // eslint-disable-next-line react/prefer-stateless-function
@@ -45,13 +65,12 @@ export default class AccountScreen extends React.Component {
     this.state = {
       photoURL: '',
       results: [],
-
+      loading: true,
     };
   }
 
   componentDidMount() {
     this.mounted = true;
-
     if (this.mounted === true) {
       const user = Fire.auth().currentUser;
       this.setState({
@@ -61,6 +80,7 @@ export default class AccountScreen extends React.Component {
       getStories().then((response) => {
         this.setState({
           results: response,
+          loading: false,
 
         });
       }).catch((e) => {
@@ -79,12 +99,18 @@ export default class AccountScreen extends React.Component {
   };
 
   render() {
-    const { photoURL, results } = this.state;
+    const { photoURL, results, loading } = this.state;
+    if (loading) {
+      return (
+        <Loader />
+      );
+    }
+
     return (
       <Container>
-        <Header transparent style={{ marginTop: 20, paddingLeft: 15, paddingRight: 15 }}>
+        <Header transparent style={{ marginTop: 10, paddingLeft: 15, paddingRight: 15 }}>
           <Body>
-            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#333333' }}>Account</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#333333' }}>Account</Text>
           </Body>
 
         </Header>
@@ -99,34 +125,35 @@ export default class AccountScreen extends React.Component {
           <View style={styles.buttonContainer}>
             <Button storyButton icon="plus" size={20} iconColor="#1883CB" onPress={this.createStory}>Create Story </Button>
           </View>
-          <View>
+          <ScrollView>
             {!_.isEmpty(results)
               ? (
                 <View>
                   {_.map(results, (item, i) => (
                     <View key={i}>
-                      <Text>
-                        {item.title}
-                      </Text>
-                      <DeckSwiper
-                        dataSource={item.images}
-                        renderItem={data => (
-                          <Card style={{
-                            elevation: 3, marginTop: 20,
-                          }}
-                          >
-                            <CardItem cardBody>
-                              <Image
-                                style={{ height: 300, flex: 1 }}
-                                source={{ uri: data.image }}
-                              />
-                            </CardItem>
+                      <View style={{ padding: 10 }}>
+                        <Text note style={{ fontWeight: '200' }}>
+                          {item.title}
+                        </Text>
+                      </View>
+                      <View style={{
+                        flexDirection: 'row', marginTop: 5, marginRight: 10, marginLeft: 10,
+                      }}
+                      >
+                        {_.map(item.images, (image, i) => (
+                          <View key={i} style={styles.box}>
 
-                          </Card>
-                        )}
-                      />
+                            <Image
+                              source={{ uri: image.image }}
+                              style={styles.image}
+                            />
+                          </View>
 
-                      <Text>{item.description}</Text>
+                        ))}
+                      </View>
+                      <View style={{ padding: 15 }}>
+                        <Text>{item.description}</Text>
+                      </View>
                     </View>
                   ))}
 
@@ -141,7 +168,7 @@ export default class AccountScreen extends React.Component {
                   </Text>
                 </View>
               )}
-          </View>
+          </ScrollView>
         </Content>
       </Container>
     );
