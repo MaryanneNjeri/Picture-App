@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Content, Header, Text, View, Body,
+  Container, Content, Header, Text, View, Body, Card, CardItem, Left, Right, Thumbnail, Icon,
 } from 'native-base';
 import {
   Dimensions, Image, StyleSheet, ScrollView,
@@ -49,14 +49,19 @@ const styles = StyleSheet.create({
   },
   image: {
     alignSelf: 'center',
-    width: 180,
-    height: 180,
+    width: width / 2,
+    height: height / 2.8,
+    borderRadius: 5,
     padding: 10,
-    borderColor: 'white',
-    borderWidth: 5,
+  },
+  textBox: {
+    padding: 15,
+    marginLeft: 10,
+    marginRight: 10,
   },
 
 });
+
 // eslint-disable-next-line react/prefer-stateless-function
 export default class AccountScreen extends React.Component {
   constructor(props) {
@@ -64,6 +69,7 @@ export default class AccountScreen extends React.Component {
     this.mounted = false;
     this.state = {
       photoURL: '',
+      name: '',
       results: [],
       loading: true,
     };
@@ -75,6 +81,7 @@ export default class AccountScreen extends React.Component {
       const user = Fire.auth().currentUser;
       this.setState({
         photoURL: user.photoURL,
+        name: user.displayName,
       });
 
       getStories().then((response) => {
@@ -99,7 +106,9 @@ export default class AccountScreen extends React.Component {
   };
 
   render() {
-    const { photoURL, results, loading } = this.state;
+    const {
+      photoURL, results, loading, name,
+    } = this.state;
     if (loading) {
       return (
         <Loader />
@@ -131,28 +140,62 @@ export default class AccountScreen extends React.Component {
                 <View>
                   {_.map(results, (item, i) => (
                     <View key={i}>
-                      <View style={{ padding: 10 }}>
-                        <Text note style={{ fontWeight: '200' }}>
+                      <View style={{ padding: 10, alignContent: 'center', justifyContent: 'center' }}>
+                        <Text note style={{ fontWeight: 'bold', textAlign: 'center' }}>
                           {item.title}
                         </Text>
                       </View>
-                      <View style={{
-                        flexDirection: 'row', marginTop: 5, marginRight: 10, marginLeft: 10,
-                      }}
+                      <ScrollView
+                        horizontal
+                        style={{
+                          flexDirection: 'row', marginLeft: 10, marginRight: 10,
+                        }}
                       >
                         {_.map(item.images, (image, i) => (
-                          <View key={i} style={styles.box}>
+                          !_.isEmpty(item.images)
+                            ? (
+                              <View key={i} style={styles.box}>
 
-                            <Image
-                              source={{ uri: image.image }}
-                              style={styles.image}
-                            />
-                          </View>
+                                <Image
+                                  source={{ uri: image.image }}
+                                  style={styles.image}
+                                />
+                              </View>
+                            ) : (
+                              <Text>
+                            No photos uploaded to this story
+                              </Text>
+                            )
 
                         ))}
-                      </View>
-                      <View style={{ padding: 15 }}>
-                        <Text>{item.description}</Text>
+                      </ScrollView>
+
+                      <View style={styles.textBox}>
+                        <Card>
+                          <CardItem>
+                            <Left>
+                              <Thumbnail source={{ uri: photoURL }} style={{ height: 50, width: 50 }} />
+                              <Body>
+                                <Text note>
+                                Story Description
+                                </Text>
+                                <Text style={{ fontWeight: '200', fontSize: 12, color: '#ff0066' }}>
+                                  {name}
+                                </Text>
+
+                              </Body>
+                            </Left>
+                          </CardItem>
+                          <CardItem
+                            cardBody
+                            style={{
+                              alignContent: 'center', justifyContent: 'center', marginBottom: 10,
+                            }}
+                          >
+                            <Text style={{ textAlign: 'center', fontWeight: '200' }}>{item.description}</Text>
+                          </CardItem>
+
+                        </Card>
                       </View>
                     </View>
                   ))}
