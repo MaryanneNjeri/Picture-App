@@ -161,7 +161,7 @@ export default {
       fontWeight: '200',
     },
   },
-  bottom: {
+  storyButton: {
     button: {
       backgroundColor: 'white',
       width: width - 100,
