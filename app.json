@@ -24,10 +24,12 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.pictureStory.app"
+    },
 
     "ios": {
-
-
+      "bundleIdentifier": "com.pictureStory.app",
       "supportsTablet": true
     }
   }

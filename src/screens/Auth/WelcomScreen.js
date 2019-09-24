@@ -4,8 +4,6 @@ import {
 } from 'native-base';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Button from '../../components/common/buttons/Button';
-import { signInWithGoogle } from '../../components/lib/functions/auth/googleSignIn';
-import { signInWithFacebook } from '../../components/lib/functions/auth/facebook';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,13 +40,6 @@ export default class WelcomeScreen extends React.Component {
     this.props.navigation.navigate('SignUp');
   };
 
-  facebookSignIn=() => {
-    signInWithFacebook();
-  };
-
-  googleSignIn=() => {
-    signInWithGoogle();
-  }
 
   render() {
     return (
