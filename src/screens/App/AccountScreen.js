@@ -2,11 +2,13 @@ import React from 'react';
 import {
   Container, Content, Header, Text, View, Body, DeckSwiper, Card, CardItem, Thumbnail, Left,
 } from 'native-base';
-import { Image, ScrollView, StyleSheet } from 'react-native';
+import { Dimensions, Image, StyleSheet } from 'react-native';
 import _ from 'lodash';
 import Button from '../../components/common/buttons/Button';
 import getStories from '../../components/lib/functions/app/getStories';
 import Fire from '../../firebase/config';
+
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -23,10 +25,17 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     alignSelf: 'center',
   },
-  imageContainer: {
+  imagesContainer: {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  storiesContainer: {
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+
 });
 // eslint-disable-next-line react/prefer-stateless-function
 export default class AccountScreen extends React.Component {
@@ -36,7 +45,7 @@ export default class AccountScreen extends React.Component {
     this.state = {
       photoURL: '',
       results: [],
-      images: [],
+
     };
   }
 
@@ -70,8 +79,7 @@ export default class AccountScreen extends React.Component {
   };
 
   render() {
-    const { photoURL, results, images } = this.state;
-    console.log(images);
+    const { photoURL, results } = this.state;
     return (
       <Container>
         <Header transparent style={{ marginTop: 20, paddingLeft: 15, paddingRight: 15 }}>
@@ -81,7 +89,7 @@ export default class AccountScreen extends React.Component {
 
         </Header>
         <Content>
-          <View style={styles.imageContainer}>
+          <View style={styles.imagesContainer}>
             {!_.isEmpty(photoURL)
               ? <Image style={styles.avatar} source={{ uri: photoURL }} />
               : <Image style={styles.avatar} source={{ uri: 'https://img.icons8.com/plasticine/200/000000/user.png' }} />
@@ -124,7 +132,15 @@ export default class AccountScreen extends React.Component {
 
 
                 </View>
-              ) : <Text style={{ fontWeight: '200' }}> No stories created , create your stories</Text>}
+              ) : (
+                <View style={styles.storiesContainer}>
+
+                  <Text style={{ fontSize: 15 }} note>
+                    No stories created create your stories
+                    {' '}
+                  </Text>
+                </View>
+              )}
           </View>
         </Content>
       </Container>

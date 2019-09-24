@@ -9,13 +9,10 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import _ from 'lodash';
-import * as firebase from 'firebase';
-import uuid from 'uuid';
 import Button from '../../components/common/buttons/Button';
 import FormInput from '../../components/common/form/FormInput';
 import Fire, { database } from '../../firebase/config';
-import shrinkImageAsync from '../../components/lib/functions/app/shrinkImageAsync';
-import uploadPhoto from '../../components/lib/functions/app/uploadPhoto';
+import { config } from '../../firebase/cloudinary';
 
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -41,8 +38,10 @@ const styles = StyleSheet.create({
 });
 // eslint-disable-next-line react/prefer-stateless-function
 const imagesArray = [];
-const localUri = '';
-const collectionName = 'snack-SJucFknGX';
+
+let apiUrl = '';
+let base64Img = ';';
+
 export default class StoryScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
       title: 'Create Story',
@@ -100,14 +99,29 @@ export default class StoryScreen extends React.Component {
         mediaTypes: ImagePicker.MediaTypeOptions.All,
         allowsEditing: true,
         aspect: [4, 3],
+        base64: true,
       });
       if (!result.cancelled) {
-        const { uri: reducedImage, width, height } = await shrinkImageAsync(result.uri);
-
-        imagesArray.push({ image: reducedImage, imageWidth: width, imageHeight: height });
-
-        this.setState({
-          images: imagesArray,
+        let imageUrl = '';
+        base64Img = `data:image/jpg;base64,${result.base64}`;
+        apiUrl = 'https://api.cloudinary.com/v1_1/uploadpicha/image/upload';
+        const data = {
+          file: base64Img,
+          upload_preset: config.upload_preset,
+        };
+        fetch(apiUrl, {
+          body: JSON.stringify(data),
+          headers: {
+            'content-type': 'application/json',
+          },
+          method: 'POST',
+        }).then(async (r) => {
+          const data1 = await r.json();
+          imageUrl = data1.secure_url;
+          imagesArray.push({ image: imageUrl });
+          this.setState({
+            images: imagesArray,
+          });
         });
       }
     };
@@ -119,31 +133,37 @@ export default class StoryScreen extends React.Component {
         aspect: [4, 3],
       });
       if (!result.cancelled) {
-        const { uri: reducedImage, width, height } = await shrinkImageAsync(result.uri);
-
-        imagesArray.push({ image: reducedImage, imageWidth: width, imageHeight: height });
-
-        this.setState({
-          images: reducedImage,
+        let imageUrl = '';
+        base64Img = `data:image/jpg;base64,${result.base64}`;
+        apiUrl = 'https://api.cloudinary.com/v1_1/uploadpicha/image/upload';
+        const data = {
+          file: base64Img,
+          upload_preset: 'ratzj3pv',
+        };
+        fetch(apiUrl, {
+          body: JSON.stringify(data),
+          headers: {
+            'content-type': 'application/json',
+          },
+          method: 'POST',
+        }).then(async (r) => {
+          const data1 = await r.json();
+          imageUrl = data1.secure_url;
+          imagesArray.push({ image: imageUrl });
+          this.setState({
+            images: imagesArray,
+          });
         });
       }
     };
-
-    uploadPhotoAsync = async (uri) => {
-      const { uid } = this.state;
-
-      const path = `${collectionName}/${uid}/${uuid.v4()}.jpg`;
-      // return uploadPhoto(uri, path);
-    };
-
 
     save=async () => {
       const { uid } = this.state;
       const {
         title, description, images,
       } = this.state;
+
       try {
-        // const remoteUri = await this.uploadPhotoAsync(images);
         database.collection('stories').add({
           uid,
           title,
@@ -152,12 +172,10 @@ export default class StoryScreen extends React.Component {
           images,
 
         });
-        Alert.alert('Successfull', 'your story has been successfully created');
+        Alert.alert('Successful', 'your story has been successfully created');
         this.props.navigation.navigate('Account');
       } catch (e) {
         Alert.alert('An Error Occurred', e);
-
-        console.log(e);
       }
     };
 
@@ -201,6 +219,7 @@ export default class StoryScreen extends React.Component {
             </View>
             <View style={styles.imageContainer}>
               { _.map(images, (image, i) => (
+
                 <View key={i} style={{ marginLeft: 10, marginRight: 10 }}>
 
                   <Image source={{ uri: image.image }} resizeMode="contain" style={{ alignSelf: 'center', width: 80, height: 80 }} />

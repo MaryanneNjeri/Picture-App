@@ -27,11 +27,11 @@ class HomeScreen extends React.Component {
     this.mounted = false;
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.mounted = true;
     const { dispatch } = this.props;
     if (this.mounted === true) {
-      await dispatch(fetchEvents());
+      dispatch(fetchEvents());
     }
   }
 
