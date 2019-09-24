@@ -6,7 +6,7 @@ import {
   Content, Container, Text, View, Body, Icon, Left,
 } from 'native-base';
 import EditProfileForm from '../../components/Auth/EditProfileForm';
-import app from '../../firebase/config';
+import Fire from '../../firebase/config';
 
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 // eslint-disable-next-line react/prefer-stateless-function
 export default class setProfileScreen extends React.Component {
 editProfile=async (userDetails) => {
-  const user = app.auth().currentUser;
+  const user = Fire.auth().currentUser;
   await user.updateProfile(userDetails).then((response) => {
     console.log(response);
     this.props.navigation.navigate('SetProfile');

@@ -140,11 +140,11 @@ class SignUpScreen extends React.Component {
               Enter via social networks
             </Text>
             <View style={styles.buttonContainer}>
-              <Button googleButton icon="google-plus" iconColor="white" size={40} onPress={this.facebookSignIn} />
+              <Button googleButton icon="google-plus" iconColor="white" size={40} />
 
               <Text>{' '}</Text>
               <Text>{' '}</Text>
-              <Button facebook icon="facebook-square" iconColor="white" size={40} onPress={this.googleSignIn} />
+              <Button facebook icon="facebook-square" iconColor="white" size={40} />
             </View>
             <Text>{' '}</Text>
             <Text>{' '}</Text>

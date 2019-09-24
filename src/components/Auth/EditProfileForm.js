@@ -8,7 +8,7 @@ import { View, Text } from 'native-base';
 import _ from 'lodash';
 import * as ImagePicker from 'expo-image-picker';
 import FormInput from '../common/form/FormInput';
-import app from '../../firebase/config';
+import Fire from '../../firebase/config';
 import Button from '../common/buttons/Button';
 
 const styles = StyleSheet.create({
@@ -41,7 +41,7 @@ export default class EditProfileForm extends React.Component {
   componentDidMount() {
     this.mounted = true;
     if (this.mounted === true) {
-      const user = app.auth().currentUser;
+      const user = Fire.auth().currentUser;
       this.setState({
         userDetails: {
           displayName: user.displayName,

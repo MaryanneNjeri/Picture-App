@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import app from '../../firebase/config';
+import Fire from '../../firebase/config';
 
 export const SIGNUP_BEGIN = 'SIGNUP_BEGIN';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
@@ -22,7 +22,7 @@ export const signupFailure = error => ({
 export function signUp(email, password) {
   return (dispatch) => {
     dispatch(signupBegin());
-    return app.auth().createUserWithEmailAndPassword(email, password)
+    return Fire.auth().createUserWithEmailAndPassword(email, password)
 
       .then((body) => {
         dispatch(signupSuccess(body));

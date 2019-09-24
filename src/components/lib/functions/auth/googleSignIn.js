@@ -1,7 +1,7 @@
 import * as Google from 'expo-google-app-auth';
 import * as firebase from 'firebase';
 import { Alert, AsyncStorage } from 'react-native';
-import app from '../../../../firebase/config';
+import Fire from '../../../../firebase/config';
 import { config } from '../../../../firebase/google.config';
 
 
@@ -16,7 +16,7 @@ export async function signInWithGoogle() {
     if (result.type === 'success') {
       const { idToken } = result;
       const credential = firebase.auth.GoogleAuthProvider.credential(idToken);
-      app.auth().signInWithCredential(credential);
+      Fire.auth().signInWithCredential(credential);
       // await firebase.auth().currentUser.getIdToken(true).then((result) => {
       //   AsyncStorage.setItem('token', result);
       // }).catch((error) => {

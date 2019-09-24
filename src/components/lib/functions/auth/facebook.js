@@ -1,7 +1,7 @@
 import * as Facebook from 'expo-facebook';
 import { Alert, AsyncStorage } from 'react-native';
 import * as firebase from 'firebase';
-import app from '../../../../firebase/config';
+import Fire from '../../../../firebase/config';
 
 export async function signInWithFacebook() {
   try {
@@ -15,9 +15,9 @@ export async function signInWithFacebook() {
     if (type === 'success' && token) {
       const credential = firebase.auth.FacebookAuthProvider.credential(token);
 
-      await app.auth().signInWithCredential(credential);
+      await Fire.auth().signInWithCredential(credential);
 
-      await app.auth().currentUser.getIdToken(true).then((result) => {
+      await Fire.auth().currentUser.getIdToken(true).then((result) => {
 
         AsyncStorage.setItem('token', result);
       }).catch((error) => {

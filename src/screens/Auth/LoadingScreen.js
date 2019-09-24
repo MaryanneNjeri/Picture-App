@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View, Text, ActivityIndicator, StyleSheet, Image,
 } from 'react-native';
-import app from '../../firebase/config';
+import Fire from '../../firebase/config';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,7 +31,7 @@ export default class LoadingScreen extends React.Component {
   componentDidMount() {
     this.mounted = true;
     if (this.mounted === true) {
-      app.auth().onAuthStateChanged((user) => {
+      Fire.auth().onAuthStateChanged((user) => {
         this.props.navigation.navigate(user ? 'App' : 'Auth');
       });
     }

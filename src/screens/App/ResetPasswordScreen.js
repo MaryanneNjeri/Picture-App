@@ -8,7 +8,7 @@ import {
 import * as firebase from 'firebase';
 import { HeaderComponent } from '../../components/Profile/HeaderComponent';
 import ResetPasswordForm from '../../components/Auth/ResetPasswordForm';
-import app from '../../firebase/config';
+import Fire from '../../firebase/config';
 
 
 const { width, height } = Dimensions.get('window');
@@ -44,7 +44,7 @@ export default class ResetPasswordScreen extends React.Component {
   changePassword=(currentPassword, newPassword) => {
     console.log(currentPassword, newPassword);
     this.reauthenticate(currentPassword).then(() => {
-      const user = app.auth().currentUser;
+      const user = Fire.auth().currentUser;
       user.updatePassword(newPassword).then(() => {
         Alert.alert('Successful', 'PasswordUpdated');
         this.props.navigation.navigate('Profile');
