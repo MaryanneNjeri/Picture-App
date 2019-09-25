@@ -170,7 +170,6 @@ export default class StoryScreen extends React.Component {
           description,
           timestamp: Date.now(),
           images,
-
         });
         Alert.alert('Successful', 'your story has been successfully created');
         this.props.navigation.navigate('Account');
