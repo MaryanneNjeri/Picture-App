@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Content, Container, View, Text,
 } from 'native-base';
-import { StyleSheet } from 'react-native';
+import { TouchableOpacity, YellowBox } from 'react-native';
 import { connect } from 'react-redux';
 import SearchBar from '../../components/common/SearchBar/SearchBar';
 import HeaderComponent from '../../components/Home/HeaderComponent';
@@ -11,32 +11,30 @@ import { fetchEvents } from '../../redux/events/action';
 import Loader from '../../components/general/Loader';
 import Error from '../../components/general/Error';
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
-});
 
 // eslint-disable-next-line react/prefer-stateless-function
 class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.mounted = false;
+    this.state = {
+    };
   }
 
+
   componentDidMount() {
-    this.mounted = true;
     const { dispatch } = this.props;
-    if (this.mounted === true) {
-      dispatch(fetchEvents());
-    }
+    this.myPromise = dispatch(fetchEvents());
   }
 
   componentWillUnmount() {
-    this.mounted = false;
+    this.myPromise.abort();
+  }
+
+  loadStories=() => {
+    const { dispatch } = this.props;
+    dispatch(fetchEvents());
   }
 
   render() {
@@ -62,8 +60,20 @@ class HomeScreen extends React.Component {
               placeholder="Search"
             />
             <Text>{' '}</Text>
-            <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#4d4d4d' }}>Popular Events</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#4d4d4d' }}>Latest Stories</Text>
           </View>
+          <TouchableOpacity onPress={this.loadStories}>
+            <Text style={{
+              fontWeight: '200', fontSize: 15, color: '#008ae6', textAlign: 'center',
+            }}
+            >
+Load new stories
+            </Text>
+          </TouchableOpacity>
+          <Text>
+            {' '}
+            {' '}
+          </Text>
           <PopularEventsComponent events={event} />
 
         </Content>
@@ -76,4 +86,5 @@ const mapStateToProps = state => ({
   loading: state.events.loading,
   error: state.events.error,
 });
+
 export default connect(mapStateToProps)(HomeScreen);

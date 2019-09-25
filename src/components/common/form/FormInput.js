@@ -33,6 +33,7 @@ export default ({
         placeholderTextColor={props.placeholderTextColor}
         onChangeText={onChangeText}
         value={props.value}
+        multiline={props.multiline}
         secureTextEntry={props.secureTextEntry}
         style={selectedStyle.input}
       />

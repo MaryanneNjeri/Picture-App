@@ -34,11 +34,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     padding: 10,
+    marginLeft: 10,
+
   },
 });
 // eslint-disable-next-line react/prefer-stateless-function
 const imagesArray = [];
-
+const normalImage = [];
 let apiUrl = '';
 let base64Img = ';';
 
@@ -55,7 +57,10 @@ export default class StoryScreen extends React.Component {
         title: '',
         description: '',
         images: [],
+        normalImages: [],
         uid: '',
+        user: {},
+        loading: false,
       };
     }
 
@@ -65,6 +70,10 @@ export default class StoryScreen extends React.Component {
         const user = Fire.auth().currentUser;
         this.setState({
           uid: user.uid,
+          user: {
+            name: user.displayName,
+            photoURL: user.photoURL,
+          },
         });
 
         this.getPermissionAsync();
@@ -109,6 +118,10 @@ export default class StoryScreen extends React.Component {
           file: base64Img,
           upload_preset: config.upload_preset,
         };
+        normalImage.push({ image: result.uri });
+        this.setState({
+          normalImages: normalImage,
+        });
         fetch(apiUrl, {
           body: JSON.stringify(data),
           headers: {
@@ -133,13 +146,18 @@ export default class StoryScreen extends React.Component {
         aspect: [4, 3],
       });
       if (!result.cancelled) {
+        normalImage.push({ image: result.uri });
+        this.setState({
+          normalImages: normalImage,
+        });
         let imageUrl = '';
         base64Img = `data:image/jpg;base64,${result.base64}`;
         apiUrl = 'https://api.cloudinary.com/v1_1/uploadpicha/image/upload';
         const data = {
           file: base64Img,
-          upload_preset: 'ratzj3pv',
+          upload_preset: config.upload_preset,
         };
+
         fetch(apiUrl, {
           body: JSON.stringify(data),
           headers: {
@@ -152,20 +170,23 @@ export default class StoryScreen extends React.Component {
           imagesArray.push({ image: imageUrl });
           this.setState({
             images: imagesArray,
+            loading: false,
           });
+        }).catch((e) => {
+          console.log(e);
         });
       }
     };
 
     save=async () => {
-      const { uid } = this.state;
+      const { uid, user } = this.state;
       const {
         title, description, images,
       } = this.state;
-
       try {
         database.collection('stories').add({
           uid,
+          user: user.name,
           title,
           description,
           timestamp: Date.now(),
@@ -174,6 +195,7 @@ export default class StoryScreen extends React.Component {
         Alert.alert('Successful', 'your story has been successfully created');
         this.props.navigation.navigate('Account');
       } catch (e) {
+        console.log(e);
         Alert.alert('An Error Occurred', e);
       }
     };
@@ -181,7 +203,7 @@ export default class StoryScreen extends React.Component {
 
     render() {
       const {
-        title, description, images,
+        title, description, loading, normalImages,
       } = this.state;
       return (
         <Container>
@@ -196,14 +218,13 @@ export default class StoryScreen extends React.Component {
               />
               <Text>
                 {' '}
-                {''}
+                {' '}
               </Text>
-
               <FormInput
                 floating
                 floatingLabel
                 label="Story description"
-                placeholder="Enter your email address"
+                multiline
                 value={description}
                 onChangeText={description => this.setState({ description })}
               />
@@ -217,13 +238,13 @@ export default class StoryScreen extends React.Component {
               <TouchableOpacity onPress={this.takePhoto}><Text style={{ fontWeight: '200', fontSize: 15, color: '#008ae6' }}>Take photo</Text></TouchableOpacity>
             </View>
             <View style={styles.imageContainer}>
-              { _.map(images, (image, i) => (
+              { loading === false ? _.map(normalImages, (image, i) => (
 
                 <View key={i} style={{ marginLeft: 10, marginRight: 10 }}>
 
                   <Image source={{ uri: image.image }} resizeMode="contain" style={{ alignSelf: 'center', width: 80, height: 80 }} />
                 </View>
-              ))}
+              )) : <Text note>Loading.....</Text>}
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Button account onPress={this.save}>Save</Button>

@@ -23,10 +23,7 @@ const styles = StyleSheet.create({
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class LoadingScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.mounted = false;
-  }
+  mounted = false;
 
   componentDidMount() {
     this.mounted = true;

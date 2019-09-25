@@ -1,15 +1,17 @@
 import React from 'react';
 import {
-  Container, Content, Header, Text, View, Body, Card, CardItem, Left, Right, Thumbnail, Icon,
+  Container, Content, Header, Text, View, Body, Card, CardItem, Left, Thumbnail,
 } from 'native-base';
 import {
-  Dimensions, Image, StyleSheet, ScrollView,
+  Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity,
 } from 'react-native';
 import _ from 'lodash';
+import { connect } from 'react-redux';
 import Button from '../../components/common/buttons/Button';
-import getStories from '../../components/lib/functions/app/getStories';
 import Fire from '../../firebase/config';
 import Loader from '../../components/general/Loader';
+import { fetchStories } from '../../redux/account/action';
+import Error from '../../components/general/Error';
 
 const { width, height } = Dimensions.get('window');
 
@@ -63,58 +65,62 @@ const styles = StyleSheet.create({
 });
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class AccountScreen extends React.Component {
+class AccountScreen extends React.Component {
+  _isMounted=false;
+
   constructor(props) {
     super(props);
-    this.mounted = false;
     this.state = {
       photoURL: '',
       name: '',
-      results: [],
-      loading: true,
+
     };
   }
 
   componentDidMount() {
-    this.mounted = true;
-    if (this.mounted === true) {
-      const user = Fire.auth().currentUser;
-      this.setState({
-        photoURL: user.photoURL,
-        name: user.displayName,
-      });
-
-      getStories().then((response) => {
-        this.setState({
-          results: response,
-          loading: false,
-
-        });
-      }).catch((e) => {
-        console.log(e);
-      });
-    }
+    this._isMounted = true;
+    this.getData();
   }
 
   componentWillUnmount() {
-    this.mounted = false;
+    this._isMounted = false;
   }
 
+  getData = () => {
+    const user = Fire.auth().currentUser;
+    this.setState({
+      photoURL: user.photoURL,
+      name: user.displayName,
+    });
+    const { dispatch } = this.props;
+    dispatch(fetchStories());
+  };
 
-  createStory=() => {
+  createStory = () => {
     this.props.navigation.navigate('Story');
+  };
+
+  loadStories=() => {
+    const { dispatch } = this.props;
+    dispatch(fetchStories());
   };
 
   render() {
     const {
-      photoURL, results, loading, name,
+      photoURL, name,
     } = this.state;
+    const { results, loading, error } = this.props;
+    console.log(results);
+
     if (loading) {
       return (
         <Loader />
       );
     }
-
+    if (error) {
+      return (
+        <Error error={error} />);
+    }
     return (
       <Container>
         <Header transparent style={{ marginTop: 10, paddingLeft: 15, paddingRight: 15 }}>
@@ -129,11 +135,28 @@ export default class AccountScreen extends React.Component {
               ? <Image style={styles.avatar} source={{ uri: photoURL }} />
               : <Image style={styles.avatar} source={{ uri: 'https://img.icons8.com/plasticine/200/000000/user.png' }} />
 
-          }
+              }
           </View>
           <View style={styles.buttonContainer}>
-            <Button storyButton icon="plus" size={20} iconColor="#1883CB" onPress={this.createStory}>Create Story </Button>
+            <Button storyButton icon="plus" size={20} iconColor="#1883CB" onPress={this.createStory}>
+Create
+                Story
+              {' '}
+            </Button>
           </View>
+
+          <Text>
+            {' '}
+            {' '}
+          </Text>
+          <TouchableOpacity onPress={this.loadStories}>
+            <Text style={{
+              fontWeight: '200', fontSize: 15, color: '#008ae6', textAlign: 'center',
+            }}
+            >
+              Load new stories
+            </Text>
+          </TouchableOpacity>
           <ScrollView>
             {!_.isEmpty(results)
               ? (
@@ -163,7 +186,7 @@ export default class AccountScreen extends React.Component {
                               </View>
                             ) : (
                               <Text>
-                            No photos uploaded to this story
+                                              No photos uploaded to this story
                               </Text>
                             )
 
@@ -174,10 +197,13 @@ export default class AccountScreen extends React.Component {
                         <Card>
                           <CardItem>
                             <Left>
-                              <Thumbnail source={{ uri: photoURL }} style={{ height: 50, width: 50 }} />
+                              <Thumbnail
+                                source={{ uri: photoURL }}
+                                style={{ height: 50, width: 50 }}
+                              />
                               <Body>
                                 <Text note>
-                                Story Description
+                                        Story Description
                                 </Text>
                                 <Text style={{ fontWeight: '200', fontSize: 12, color: '#ff0066' }}>
                                   {name}
@@ -192,7 +218,7 @@ export default class AccountScreen extends React.Component {
                               alignContent: 'center', justifyContent: 'center', marginBottom: 10,
                             }}
                           >
-                            <Text style={{ textAlign: 'center', fontWeight: '200' }}>{item.description}</Text>
+                            <Text style={{ textAlign: 'center', fontWeight: '200' }} note>{item.description}</Text>
                           </CardItem>
 
                         </Card>
@@ -206,7 +232,7 @@ export default class AccountScreen extends React.Component {
                 <View style={styles.storiesContainer}>
 
                   <Text style={{ fontSize: 15 }} note>
-                    No stories created create your stories
+                          No stories created create your stories
                     {' '}
                   </Text>
                 </View>
@@ -217,3 +243,9 @@ export default class AccountScreen extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  results: state.stories.items,
+  loading: state.stories.loading,
+  error: state.stories.error,
+});
+export default connect(mapStateToProps)(AccountScreen);
