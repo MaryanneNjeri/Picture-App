@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js" line="140" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js" line="138" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f3989f6-0a40-461f-86cd-80c88b61166a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redux/account/action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/account/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/form/FormInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/form/FormInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/lib/functions/app/getEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/lib/functions/app/getEvents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/rootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/App/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/App/AccountScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/App/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/App/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/App/StoryScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/App/StoryScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Auth/LoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/LoadingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Auth/WelcomScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Auth/WelcomScreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-347">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="-988">
+              <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -39,35 +31,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/App/HomeScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="-712">
+              <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/rootReducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/account/reducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -90,11 +61,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/screens/App/StoryScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="223" selection-start-line="223" selection-end-line="232" selection-end-column="126" />
+            <state relative-caret-position="264">
+              <caret line="214" selection-start-line="214" selection-end-line="214" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/general/Loader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" selection-start-line="9" selection-end-line="10" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -117,10 +100,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1738">
-              <caret line="79" column="86" selection-start-line="79" selection-start-column="86" selection-end-line="79" selection-end-column="86" />
+            <state relative-caret-position="1900">
+              <caret line="127" column="106" selection-start-line="127" selection-start-column="106" selection-end-line="127" selection-end-column="106" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,9 +136,12 @@
     <findStrings>
       <find>logIn</find>
       <find>onPress</find>
-      <find>console</find>
       <find>console.log</find>
       <find>consol</find>
+      <find>align</find>
+      <find>alignCon</find>
+      <find>conso</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,7 +169,6 @@
         <option value="$PROJECT_DIR$/src/screens/App/ProfileScreen.js" />
         <option value="$PROJECT_DIR$/src/components/Profile/HeaderComponent.js" />
         <option value="$PROJECT_DIR$/src/components/Auth/ResetPasswordForm.js" />
-        <option value="$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js" />
         <option value="$PROJECT_DIR$/src/components/lib/functions/auth/googleSignIn.js" />
         <option value="$PROJECT_DIR$/src/components/lib/functions/auth/logout.js" />
         <option value="$PROJECT_DIR$/src/screens/App/SetProfileScreen.js" />
@@ -197,12 +194,13 @@
         <option value="$PROJECT_DIR$/src/components/common/form/FormInput.js" />
         <option value="$PROJECT_DIR$/src/screens/Auth/LoadingScreen.js" />
         <option value="$PROJECT_DIR$/src/firebase/cloudinary.js" />
-        <option value="$PROJECT_DIR$/src/screens/App/StoryScreen.js" />
         <option value="$PROJECT_DIR$/src/redux/account/action.js" />
         <option value="$PROJECT_DIR$/src/redux/account/reducer.js" />
-        <option value="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" />
-        <option value="$PROJECT_DIR$/src/screens/App/AccountScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/App/HomeScreen.js" />
+        <option value="$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js" />
+        <option value="$PROJECT_DIR$/src/screens/App/AccountScreen.js" />
+        <option value="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" />
+        <option value="$PROJECT_DIR$/src/screens/App/StoryScreen.js" />
       </list>
     </option>
   </component>
@@ -223,7 +221,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,7 +244,38 @@
               <item name="picture_app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="general" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="functions" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
@@ -306,6 +334,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -369,18 +398,20 @@
       <workItem from="1569248196207" duration="30216000" />
       <workItem from="1569313875023" duration="18916000" />
       <workItem from="1569396770983" duration="2793000" />
-      <workItem from="1569427676308" duration="19021000" />
+      <workItem from="1569427676308" duration="20703000" />
+      <workItem from="1569452953421" duration="1084000" />
+      <workItem from="1569525425004" duration="1374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223824000" />
+    <option name="totallyTimeSpent" value="227964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1025" y="27" width="890" height="1053" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3270142" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3270142" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -407,26 +438,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/redux/login/action.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/signup/action.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/lib/functions/app/editProfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -648,15 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/general/Loader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Auth/SignUpScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="853">
@@ -694,23 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase/cloudinary.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/lib/functions/app/getStories.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -728,26 +713,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/events/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="4" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1738">
-          <caret line="79" column="86" selection-start-line="79" selection-start-column="86" selection-end-line="79" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/rootReducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="154">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -755,30 +723,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/App/StoryScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="223" selection-start-line="223" selection-end-line="232" selection-end-column="126" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-347">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/account/reducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/events/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="4" selection-end-line="35" />
         </state>
       </provider>
     </entry>
@@ -789,10 +744,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/firebase/cloudinary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.watchmanconfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/App/HomeScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="-712">
+          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-988">
+          <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/general/Loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" selection-start-line="9" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1900">
+          <caret line="127" column="106" selection-start-line="127" selection-start-column="106" selection-end-line="127" selection-end-column="106" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/App/StoryScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="214" selection-start-line="214" selection-end-line="214" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

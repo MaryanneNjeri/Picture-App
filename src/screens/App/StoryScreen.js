@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Content, Text, View,
+  Container, Content, Spinner, Text, View,
 } from 'native-base';
 import {
   Alert, StyleSheet, Image, Dimensions, TouchableOpacity,
@@ -118,9 +118,8 @@ export default class StoryScreen extends React.Component {
           file: base64Img,
           upload_preset: config.upload_preset,
         };
-        normalImage.push({ image: result.uri });
         this.setState({
-          normalImages: normalImage,
+          loading: true,
         });
         fetch(apiUrl, {
           body: JSON.stringify(data),
@@ -134,6 +133,7 @@ export default class StoryScreen extends React.Component {
           imagesArray.push({ image: imageUrl });
           this.setState({
             images: imagesArray,
+            loading: false,
           });
         });
       }
@@ -146,9 +146,8 @@ export default class StoryScreen extends React.Component {
         aspect: [4, 3],
       });
       if (!result.cancelled) {
-        normalImage.push({ image: result.uri });
         this.setState({
-          normalImages: normalImage,
+          loading: true,
         });
         let imageUrl = '';
         base64Img = `data:image/jpg;base64,${result.base64}`;
@@ -167,6 +166,7 @@ export default class StoryScreen extends React.Component {
         }).then(async (r) => {
           const data1 = await r.json();
           imageUrl = data1.secure_url;
+
           imagesArray.push({ image: imageUrl });
           this.setState({
             images: imagesArray,
@@ -193,6 +193,13 @@ export default class StoryScreen extends React.Component {
           images,
         });
         Alert.alert('Successful', 'your story has been successfully created');
+        this.setState({
+          title: '',
+          description: '',
+          images: [],
+          uid: '',
+          user: {},
+        });
         this.props.navigation.navigate('Account');
       } catch (e) {
         console.log(e);
@@ -203,7 +210,7 @@ export default class StoryScreen extends React.Component {
 
     render() {
       const {
-        title, description, loading, normalImages,
+        title, description, loading, images,
       } = this.state;
       return (
         <Container>
@@ -238,13 +245,19 @@ export default class StoryScreen extends React.Component {
               <TouchableOpacity onPress={this.takePhoto}><Text style={{ fontWeight: '200', fontSize: 15, color: '#008ae6' }}>Take photo</Text></TouchableOpacity>
             </View>
             <View style={styles.imageContainer}>
-              { loading === false ? _.map(normalImages, (image, i) => (
+              { loading === false ? _.map(images, (image, i) => (
 
                 <View key={i} style={{ marginLeft: 10, marginRight: 10 }}>
 
                   <Image source={{ uri: image.image }} resizeMode="contain" style={{ alignSelf: 'center', width: 80, height: 80 }} />
                 </View>
-              )) : <Text note>Loading.....</Text>}
+              )) : (
+                <View style={{ alignContent: 'center', justifyContent: 'center' }}>
+                  <Spinner style={{ height: 40 }} size="small" color="tomato" />
+
+                  <Text note>Loading.....</Text>
+                </View>
+              )}
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Button account onPress={this.save}>Save</Button>

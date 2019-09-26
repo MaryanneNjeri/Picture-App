@@ -110,8 +110,6 @@ class AccountScreen extends React.Component {
       photoURL, name,
     } = this.state;
     const { results, loading, error } = this.props;
-    console.log(results);
-
     if (loading) {
       return (
         <Loader />

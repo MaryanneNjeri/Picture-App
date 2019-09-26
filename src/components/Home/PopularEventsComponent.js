@@ -64,7 +64,7 @@ export default class PopularEventsComponent extends React.Component {
                   <Text note style={{ fontWeight: 'bold', textAlign: 'center' }}>
                     {item.title}
                   </Text>
-                  <View style={{ alignContent: 'left', marginLeft: 10, flexDirection: 'row' }}>
+                  <View style={{ alignSelf: 'flex-start', marginLeft: 10, flexDirection: 'row' }}>
                     {!_.isEmpty(item.photoUrl)
                       ? (
                         <Thumbnail
@@ -125,7 +125,7 @@ export default class PopularEventsComponent extends React.Component {
                       <CardItem
                         cardBody
                         style={{
-                          alignContent: 'center', justifyContent: 'center', marginBottom: 10,
+                          alignContent: 'center', justifyContent: 'center', marginBottom: 10, padding: 10,
                         }}
                       >
                         <Text style={{ textAlign: 'center', fontWeight: '200' }}>{item.description}</Text>
