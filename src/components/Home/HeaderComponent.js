@@ -9,7 +9,8 @@ export default class HeaderComponent extends React.Component {
     return (
       <Header transparent style={{ marginTop: 20, paddingLeft: 15, paddingRight: 15 }}>
         <Left>
-          <Text style={{ fontWeight: 'bold', fontSize: 27, color: '#333333' }}>Explore Stories</Text>
+
+          <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#333333' }}>Explore Stories</Text>
         </Left>
 
         <Right>

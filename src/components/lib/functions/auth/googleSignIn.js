@@ -17,11 +17,6 @@ export async function signInWithGoogle() {
       const { idToken } = result;
       const credential = firebase.auth.GoogleAuthProvider.credential(idToken);
       Fire.auth().signInWithCredential(credential);
-      // await firebase.auth().currentUser.getIdToken(true).then((result) => {
-      //   AsyncStorage.setItem('token', result);
-      // }).catch((error) => {
-      //   Alert.alert('Error', `${error}`);
-      // });
     } else {
       Alert.alert('Permissions', 'Permission denied');
     }

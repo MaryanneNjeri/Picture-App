@@ -13,28 +13,24 @@ import Error from '../../components/general/Error';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
-
 // eslint-disable-next-line react/prefer-stateless-function
 class HomeScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+  isMounted = false;
 
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    this.myPromise = dispatch(fetchEvents());
+    this.isMounted = true;
+    const { fetch } = this.props;
+    fetch();
   }
 
   componentWillUnmount() {
-    this.myPromise.abort();
+    this.isMounted = false;
   }
 
   loadStories=() => {
-    const { dispatch } = this.props;
-    dispatch(fetchEvents());
+    const { fetch } = this.props;
+    fetch();
   }
 
   render() {
@@ -86,5 +82,8 @@ const mapStateToProps = state => ({
   loading: state.events.loading,
   error: state.events.error,
 });
+const mapDispatchToProps = dispatch => ({
+  fetch: () => { dispatch(fetchEvents()); },
+});
 
-export default connect(mapStateToProps)(HomeScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

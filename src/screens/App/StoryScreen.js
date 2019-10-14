@@ -183,10 +183,11 @@ export default class StoryScreen extends React.Component {
       const {
         title, description, images,
       } = this.state;
+      console.log(user);
       try {
         database.collection('stories').add({
           uid,
-          user: user.name,
+          user,
           title,
           description,
           timestamp: Date.now(),
