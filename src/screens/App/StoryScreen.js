@@ -51,7 +51,6 @@ export default class StoryScreen extends React.Component {
         title: '',
         description: '',
         images: [],
-        imageCaption: '',
         uid: '',
         user: {},
         loading: false,
@@ -175,7 +174,7 @@ export default class StoryScreen extends React.Component {
     save=async () => {
       const { uid, user } = this.state;
       const {
-        title, description, images, imageCaption,
+        title, description, images,
       } = this.state;
       console.log(user);
       try {
@@ -184,7 +183,6 @@ export default class StoryScreen extends React.Component {
           user,
           title,
           description,
-          imageCaption,
           timestamp: Date.now(),
           images,
         });
@@ -192,7 +190,6 @@ export default class StoryScreen extends React.Component {
         this.setState({
           title: '',
           description: '',
-          imageCaption: '',
           images: [],
           uid: '',
           user: {},
@@ -207,7 +204,7 @@ export default class StoryScreen extends React.Component {
 
     render() {
       const {
-        title, description, loading, images, imageCaption,
+        title, description, loading, images,
       } = this.state;
       // console.log('this is', images);
       return (
@@ -262,8 +259,9 @@ export default class StoryScreen extends React.Component {
                           floatingLabel
                           label="Image caption"
                           multiline
-                          value={imageCaption}
-                          onChangeText={imageCaption => this.setState({ imageCaption })}
+                          // value={item.imageCaption}
+                          onChange={caption => this.setState({ images: [...this.state.images, caption] })
+                          }
                         />
                         <Text>{' '}</Text>
 

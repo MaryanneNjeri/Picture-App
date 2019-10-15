@@ -27,7 +27,7 @@ class HomeScreen extends React.Component {
 
   componentWillUnmount() {
     this.isMounted = false;
-    console.log(this.isMounted)
+    console.log(this.isMounted);
   }
 
   loadStories=() => {
@@ -37,6 +37,7 @@ class HomeScreen extends React.Component {
 
   render() {
     const { event, loading, error } = this.props;
+    console.log(event);
     if (loading) {
       return (
         <Loader />);

@@ -65,22 +65,23 @@ export default class PopularEventsComponent extends React.Component {
                     {item.title}
                   </Text>
                   <View style={{ alignSelf: 'flex-start', marginLeft: 10, flexDirection: 'row' }}>
-                    {!_.isEmpty(item.photoUrl)
+                    {!_.isEmpty(item.user.photoURL)
                       ? (
                         <Thumbnail
-                          source={{ uri: events.photoURL }}
-                          style={{ height: 50, width: 50 }}
+                          small
+                          source={{ uri: item.user.photoURL }}
                         />
                       )
-                      : <Thumbnail source={{ uri: 'https://img.icons8.com/bubbles/100/000000/gender-neutral-user.png' }} style={{ height: 50, width: 50 }} />
+                      : <Thumbnail source={{ uri: 'https://img.icons8.com/bubbles/100/000000/gender-neutral-user.png' }} />
 
                     }
+                    <Text>{' '}</Text>
 
                     <Text style={{
                       fontWeight: '200', fontSize: 12, color: '#ff0066', marginTop: 15,
                     }}
                     >
-                      {item.user}
+                      {item.user.name}
                     </Text>
 
 
