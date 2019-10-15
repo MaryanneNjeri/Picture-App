@@ -32,6 +32,7 @@ export default ({
         placeholder={props.placeholder}
         placeholderTextColor={props.placeholderTextColor}
         onChangeText={onChangeText}
+        onChange={props.onChange}
         value={props.value}
         multiline={props.multiline}
         secureTextEntry={props.secureTextEntry}

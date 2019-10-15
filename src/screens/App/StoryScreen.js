@@ -34,9 +34,7 @@ const styles = StyleSheet.create({
   },
 });
 // eslint-disable-next-line react/prefer-stateless-function
-const imagesArray = [];
-let apiUrl = '';
-let base64Img = ';';
+
 
 export default class StoryScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -104,31 +102,7 @@ export default class StoryScreen extends React.Component {
         base64: true,
       });
       if (!result.cancelled) {
-        let imageUrl = '';
-        base64Img = `data:image/jpg;base64,${result.base64}`;
-        apiUrl = 'https://api.cloudinary.com/v1_1/uploadpicha/image/upload';
-        const data = {
-          file: base64Img,
-          upload_preset: config.upload_preset,
-        };
-        this.setState({
-          loading: true,
-        });
-        fetch(apiUrl, {
-          body: JSON.stringify(data),
-          headers: {
-            'content-type': 'application/json',
-          },
-          method: 'POST',
-        }).then(async (r) => {
-          const data1 = await r.json();
-          imageUrl = data1.secure_url;
-          imagesArray.push({ image: imageUrl });
-          this.setState({
-            images: imagesArray,
-            loading: false,
-          });
-        });
+        this.props.navigation.navigate('NewPost', { result });
       }
     };
 
@@ -139,35 +113,7 @@ export default class StoryScreen extends React.Component {
         aspect: [4, 3],
       });
       if (!result.cancelled) {
-        this.setState({
-          loading: true,
-        });
-        let imageUrl = '';
-        base64Img = `data:image/jpg;base64,${result.base64}`;
-        apiUrl = 'https://api.cloudinary.com/v1_1/uploadpicha/image/upload';
-        const data = {
-          file: base64Img,
-          upload_preset: config.upload_preset,
-        };
-
-        fetch(apiUrl, {
-          body: JSON.stringify(data),
-          headers: {
-            'content-type': 'application/json',
-          },
-          method: 'POST',
-        }).then(async (r) => {
-          const data1 = await r.json();
-          imageUrl = data1.secure_url;
-
-          imagesArray.push({ image: imageUrl });
-          this.setState({
-            images: imagesArray,
-            loading: false,
-          });
-        }).catch((e) => {
-          console.log(e);
-        });
+        this.props.navigation.navigate('NewPost', { result });
       }
     };
 
@@ -204,9 +150,9 @@ export default class StoryScreen extends React.Component {
 
     render() {
       const {
-        title, description, loading, images,
+        title, description, images,
       } = this.state;
-      // console.log('this is', images);
+
       return (
         <Container>
           <Content>
@@ -240,7 +186,7 @@ export default class StoryScreen extends React.Component {
               <TouchableOpacity onPress={this.takePhoto}><Text style={{ fontWeight: '200', fontSize: 15, color: '#008ae6' }}>Take photo</Text></TouchableOpacity>
             </View>
             <View style={styles.imageContainer}>
-              { loading === false
+              { !_.isEmpty(images)
 
                 ? (
                   <FlatList
@@ -248,22 +194,13 @@ export default class StoryScreen extends React.Component {
                     renderItem={({ item }) => (
                       <View style={{ marginLeft: 10 }}>
                         <Image
-                          source={{ uri: item.image }}
+                          source={{ uri: item.image.image }}
                           style={{
                             alignSelf: 'center', width: width / 2, height: width / 2, borderRadius: 5,
                           }}
                         />
                         <Text>{' '}</Text>
-                        <FormInput
-                          floating
-                          floatingLabel
-                          label="Image caption"
-                          multiline
-                          // value={item.imageCaption}
-                          onChange={caption => this.setState({ images: [...this.state.images, caption] })
-                          }
-                        />
-                        <Text>{' '}</Text>
+
 
                       </View>
                     )}
@@ -275,10 +212,12 @@ export default class StoryScreen extends React.Component {
                 )
                 : (
                   <View style={{ alignContent: 'center', justifyContent: 'center' }}>
-                    <Spinner style={{ height: 40 }} size="small" color="tomato" />
 
-                    <Text note>Loading.....</Text>
+                    <Text note>
+                 No image uploaded yet
+                    </Text>
                   </View>
+
                 )}
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>

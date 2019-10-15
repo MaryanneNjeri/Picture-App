@@ -37,7 +37,7 @@ class HomeScreen extends React.Component {
 
   render() {
     const { event, loading, error } = this.props;
-    console.log(event);
+    // console.log(event);
     if (loading) {
       return (
         <Loader />);
