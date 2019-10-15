@@ -21,11 +21,13 @@ class HomeScreen extends React.Component {
   componentDidMount() {
     this.isMounted = true;
     const { fetch } = this.props;
+    console.log(this.isMounted);
     fetch();
   }
 
   componentWillUnmount() {
     this.isMounted = false;
+    console.log(this.isMounted)
   }
 
   loadStories=() => {

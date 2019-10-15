@@ -3,7 +3,7 @@ import {
   Container, Content, Spinner, Text, View,
 } from 'native-base';
 import {
-  Alert, StyleSheet, Image, Dimensions, TouchableOpacity,
+  Alert, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
@@ -29,18 +29,12 @@ const styles = StyleSheet.create({
 
   },
   imageContainer: {
-    width: (width - 32) / 3,
-    height: (width - 32) / 3,
     justifyContent: 'center',
-    flexDirection: 'row',
     padding: 10,
-    marginLeft: 10,
-
   },
 });
 // eslint-disable-next-line react/prefer-stateless-function
 const imagesArray = [];
-const normalImage = [];
 let apiUrl = '';
 let base64Img = ';';
 
@@ -57,7 +51,7 @@ export default class StoryScreen extends React.Component {
         title: '',
         description: '',
         images: [],
-        normalImages: [],
+        imageCaption: '',
         uid: '',
         user: {},
         loading: false,
@@ -181,7 +175,7 @@ export default class StoryScreen extends React.Component {
     save=async () => {
       const { uid, user } = this.state;
       const {
-        title, description, images,
+        title, description, images, imageCaption,
       } = this.state;
       console.log(user);
       try {
@@ -190,6 +184,7 @@ export default class StoryScreen extends React.Component {
           user,
           title,
           description,
+          imageCaption,
           timestamp: Date.now(),
           images,
         });
@@ -197,6 +192,7 @@ export default class StoryScreen extends React.Component {
         this.setState({
           title: '',
           description: '',
+          imageCaption: '',
           images: [],
           uid: '',
           user: {},
@@ -211,8 +207,9 @@ export default class StoryScreen extends React.Component {
 
     render() {
       const {
-        title, description, loading, images,
+        title, description, loading, images, imageCaption,
       } = this.state;
+      // console.log('this is', images);
       return (
         <Container>
           <Content>
@@ -246,19 +243,45 @@ export default class StoryScreen extends React.Component {
               <TouchableOpacity onPress={this.takePhoto}><Text style={{ fontWeight: '200', fontSize: 15, color: '#008ae6' }}>Take photo</Text></TouchableOpacity>
             </View>
             <View style={styles.imageContainer}>
-              { loading === false ? _.map(images, (image, i) => (
+              { loading === false
 
-                <View key={i} style={{ marginLeft: 10, marginRight: 10 }}>
+                ? (
+                  <FlatList
+                    data={images}
+                    renderItem={({ item }) => (
+                      <View style={{ marginLeft: 10 }}>
+                        <Image
+                          source={{ uri: item.image }}
+                          style={{
+                            alignSelf: 'center', width: width / 2, height: width / 2, borderRadius: 5,
+                          }}
+                        />
+                        <Text>{' '}</Text>
+                        <FormInput
+                          floating
+                          floatingLabel
+                          label="Image caption"
+                          multiline
+                          value={imageCaption}
+                          onChangeText={imageCaption => this.setState({ imageCaption })}
+                        />
+                        <Text>{' '}</Text>
 
-                  <Image source={{ uri: image.image }} resizeMode="contain" style={{ alignSelf: 'center', width: 80, height: 80 }} />
-                </View>
-              )) : (
-                <View style={{ alignContent: 'center', justifyContent: 'center' }}>
-                  <Spinner style={{ height: 40 }} size="small" color="tomato" />
+                      </View>
+                    )}
+                    keyExtractor={item => item.image}
+                    numColumns={2}
+                    showsVerticalScrollIndicator={false}
+                    horizontal={false}
+                  />
+                )
+                : (
+                  <View style={{ alignContent: 'center', justifyContent: 'center' }}>
+                    <Spinner style={{ height: 40 }} size="small" color="tomato" />
 
-                  <Text note>Loading.....</Text>
-                </View>
-              )}
+                    <Text note>Loading.....</Text>
+                  </View>
+                )}
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Button account onPress={this.save}>Save</Button>
