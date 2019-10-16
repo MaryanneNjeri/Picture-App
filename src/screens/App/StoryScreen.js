@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Content, Spinner, Text, View,
+  Container, Content, Text, View,
 } from 'native-base';
 import {
   Alert, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList,
@@ -12,7 +12,6 @@ import _ from 'lodash';
 import Button from '../../components/common/buttons/Button';
 import FormInput from '../../components/common/form/FormInput';
 import Fire, { database } from '../../firebase/config';
-import { config } from '../../firebase/cloudinary';
 
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
 });
 // eslint-disable-next-line react/prefer-stateless-function
 
-
+let imagesArray1 = [];
 export default class StoryScreen extends React.Component {
     static navigationOptions = ({ navigation }) => ({
       title: 'Create Story',
@@ -66,7 +65,6 @@ export default class StoryScreen extends React.Component {
             photoURL: user.photoURL,
           },
         });
-
         this.getPermissionAsync();
         this.getCameraPermission();
       }
@@ -102,8 +100,19 @@ export default class StoryScreen extends React.Component {
         base64: true,
       });
       if (!result.cancelled) {
-        this.props.navigation.navigate('NewPost', { result });
+        this.props.navigation.navigate('NewPost', {
+          result,
+          onGoBack: this.refresh,
+        });
       }
+    };
+
+    refresh=(data) => {
+      imagesArray1 = data;
+      this.setState({
+        images: imagesArray1,
+      });
+      // console.log(imagesArray1);
     };
 
     takePhoto=async () => {
@@ -152,6 +161,7 @@ export default class StoryScreen extends React.Component {
       const {
         title, description, images,
       } = this.state;
+      console.log(images);
 
       return (
         <Container>
@@ -193,18 +203,19 @@ export default class StoryScreen extends React.Component {
                     data={images}
                     renderItem={({ item }) => (
                       <View style={{ marginLeft: 10 }}>
+                        <Text>{item.caption}</Text>
                         <Image
                           source={{ uri: item.image.image }}
                           style={{
                             alignSelf: 'center', width: width / 2, height: width / 2, borderRadius: 5,
                           }}
                         />
-                        <Text>{' '}</Text>
+                        <Text style={{ fontWeight: '200' }}>{item.image.caption}</Text>
 
 
                       </View>
                     )}
-                    keyExtractor={item => item.image}
+                    keyExtractor={item => item.image.image}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
                     horizontal={false}
@@ -213,7 +224,7 @@ export default class StoryScreen extends React.Component {
                 : (
                   <View style={{ alignContent: 'center', justifyContent: 'center' }}>
 
-                    <Text note>
+                    <Text note style={{ textAlign: 'center' }}>
                  No image uploaded yet
                     </Text>
                   </View>

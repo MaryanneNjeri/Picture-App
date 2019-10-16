@@ -1,10 +1,9 @@
 import React from 'react';
 import {
-  Image, Alert, TextInput, View, Text,
+  Image, TextInput, View, Text,
 } from 'react-native';
-import { Content, Container } from 'native-base';
 import Button from '../../components/common/buttons/Button';
-import Fire from '../../firebase/config';
+import Loader from '../../components/general/Loader';
 import { config } from '../../firebase/cloudinary';
 
 const imagesArray = [];
@@ -22,13 +21,16 @@ export default class NewPostScreen extends React.Component {
       super(props);
       this.state = {
         caption: '',
-        images: [],
+        loading: false,
       };
     }
 
     save=() => {
+      this.setState({
+        loading: true,
+      });
       const { result } = this.props.navigation.state.params;
-      const { caption, images } = this.state;
+      const { caption } = this.state;
       base64Img = `data:image/jpg;base64,${result.base64}`;
       apiUrl = 'https://api.cloudinary.com/v1_1/uploadpicha/image/upload';
       const data = {
@@ -45,14 +47,19 @@ export default class NewPostScreen extends React.Component {
         const data1 = await r.json();
         imagesArray.push({ image: { image: data1.secure_url, caption } });
         this.setState({
-          images: imagesArray,
+          loading: false,
         });
+        this.props.navigation.state.params.onGoBack(imagesArray);
+        this.props.navigation.goBack();
       });
     };
 
     render() {
       const { result } = this.props.navigation.state.params;
-      const { caption } = this.state;
+      const { loading } = this.state;
+      if (loading) {
+        return (<Loader />);
+      }
       return (
         <View>
           <View style={{ padding: 10, flexDirection: 'row' }}>
