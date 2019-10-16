@@ -4,11 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js" line="138" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3989f6-0a40-461f-86cd-80c88b61166a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/App/NewPostScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/App/NewPostScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/App/StoryScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/App/StoryScreen.js" afterDir="false" />
-    </list>
+    <list default="true" id="6f3989f6-0a40-461f-86cd-80c88b61166a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +183,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="1039" />
     <option name="y" value="27" />
     <option name="width" value="878" />
@@ -348,15 +344,15 @@
       <workItem from="1571053209371" duration="5380000" />
       <workItem from="1571117511282" duration="8360000" />
       <workItem from="1571132043152" duration="11384000" />
-      <workItem from="1571204243229" duration="5656000" />
+      <workItem from="1571204243229" duration="6488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265903000" />
+    <option name="totallyTimeSpent" value="266735000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1039" y="27" width="878" height="1053" extended-state="0" />
+    <frame x="1039" y="27" width="878" height="1053" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.3341346" />
@@ -374,7 +370,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32900432" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.5335498" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.5335498" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
