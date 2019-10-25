@@ -30,6 +30,16 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     alignSelf: 'center',
   },
+  avatarIcon: {
+    width: 130,
+    height: 130,
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 130,
+
+    alignSelf: 'center',
+    color: '#ff0066',
+  },
   imagesContainer: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -103,9 +113,8 @@ class AccountScreen extends React.Component {
     dispatch(fetchStories());
   };
 
-  viewStoryDetails=() => {
-    const { results } = this.props;
-    this.props.navigation.navigate('StoryDetails', { images: results });
+  viewStoryDetails=(images) => {
+    this.props.navigation.navigate('StoryDetails', { images });
   };
 
   render() {
@@ -134,7 +143,7 @@ class AccountScreen extends React.Component {
           <View style={styles.imagesContainer}>
             {!_.isEmpty(photoURL)
               ? <Image style={styles.avatar} source={{ uri: photoURL }} />
-              : <Image style={styles.avatar} source={{ uri: 'https://img.icons8.com/plasticine/200/000000/user.png' }} />
+              : <Icon style={styles.avatarIcon} name="user-circle" type="FontAwesome" />
 
               }
           </View>
@@ -184,7 +193,7 @@ Create
                           </Left>
                         </CardItem>
                         <CardItem cardBody>
-                          <TouchableOpacity onPress={this.viewStoryDetails}>
+                          <TouchableOpacity onPress={() => { this.viewStoryDetails(item.images); }}>
                             <Image
                               source={{ uri: item.images[1].image.image }}
                               style={styles.image}

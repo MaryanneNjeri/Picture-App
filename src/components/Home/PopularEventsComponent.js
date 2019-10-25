@@ -59,7 +59,7 @@ export default class PopularEventsComponent extends React.Component {
                       </Left>
                     </CardItem>
                     <CardItem cardBody>
-                      <TouchableOpacity onPress={() => { viewStory(); }}>
+                      <TouchableOpacity onPress={() => { viewStory(item.images); }}>
                         <Image
                           source={{ uri: item.images[1].image.image }}
                           style={styles.image}
@@ -70,7 +70,7 @@ export default class PopularEventsComponent extends React.Component {
                       <View style={{ flexDirection: 'column' }}>
                         <Text style={{ fontWeight: '200', fontSize: 15 }}>{item.description}</Text>
                         <Text>{' '}</Text>
-                        <TouchableOpacity onPress={() => { viewStory(); }}>
+                        <TouchableOpacity onPress={() => { viewStory(item.images); }}>
                           <Text style={{ fontSize: 12 }} note>
                             {' '}
                             <Icon type="Feather" name="send" style={{ fontSize: 20, color: '#ff0066' }} />

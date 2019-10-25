@@ -1,11 +1,10 @@
 import React from 'react';
 import {
-  Container, Content, Text, View,
+  Container, Content, Text, View, Card, CardItem,
 } from 'native-base';
 import {
-  Alert, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList, ListView, ScrollView,
+  Alert, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView,
 } from 'react-native';
-import { Grid, Col, Row } from 'react-native-easy-grid';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
@@ -199,21 +198,24 @@ export default class StoryScreen extends React.Component {
             <View style={styles.imageContainer}>
               { !_.isEmpty(images)
                 ? (
-                  <Grid>
+                  <ScrollView horizontal>
                     {_.map(images, (item, i) => (
-                      <Row key={i}>
-                        <Col>
+
+                      <Card key={i} style={{ width: width / 4.8 }}>
+                        <CardItem cardBody>
                           <Image
                             source={{ uri: item.image.image }}
                             style={{
-                              alignSelf: 'center', width: width / 3, height: width / 3, borderRadius: 8,
+                              alignSelf: 'center', width: width / 4.8, height: width / 4.8,
                             }}
                           />
+                        </CardItem>
+                        <CardItem>
                           <Text note style={{ fontSize: 12 }}>{item.image.caption}</Text>
-                        </Col>
-                      </Row>
+                        </CardItem>
+                      </Card>
                     ))}
-                  </Grid>
+                  </ScrollView>
                 )
                 : (
                   <View style={{ alignContent: 'center', justifyContent: 'center' }}>

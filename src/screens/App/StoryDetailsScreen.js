@@ -31,47 +31,43 @@ export default class StoryDetailsScreen extends React.Component {
     return (
       <Container>
         <View style={styles.container}>
-          {_.map(images, (data, i) => (
-            <View key={i}>
-              <DeckSwiper
-                dataSource={data.images}
-                ref={c => this._deckSwiper = c}
-                renderEmpty={() => (
-                  <View style={{ alignSelf: 'center' }}>
-                    <Text>Over</Text>
-                  </View>
-                )}
-                renderItem={item => (
-                  <Card key={i} style={styles.card}>
-                    <CardItem>
-                      <Left>
-                        <Text style={{ fontSize: 14, color: '#ff4d4d' }}>
-                          <Icon type="Ionicons" name="md-albums" style={{ fontSize: 16, color: '#ff4d4d' }} />
-                          {' '}
+          <DeckSwiper
+            dataSource={images}
+            ref={c => this._deckSwiper = c}
+            renderEmpty={() => (
+              <View style={{ alignSelf: 'center' }}>
+                <Text>Over</Text>
+              </View>
+            )}
+            renderItem={item => (
+              <Card style={styles.card}>
+                <CardItem>
+                  <Left>
+                    <Text style={{ fontSize: 14, color: '#ff4d4d' }}>
+                      <Icon type="Ionicons" name="md-albums" style={{ fontSize: 16, color: '#ff4d4d' }} />
+                      {' '}
 Images
-                        </Text>
-                      </Left>
-                    </CardItem>
-                    <CardItem cardBody>
-                      <Image
-                        source={{ uri: item.image.image }}
-                        style={styles.image}
-                      />
-                    </CardItem>
-                    <CardItem>
-                      <Text style={{ color: '#333333' }}>{item.image.caption}</Text>
-                    </CardItem>
-                  </Card>
+                    </Text>
+                  </Left>
+                </CardItem>
+                <CardItem cardBody>
+                  <Image
+                    source={{ uri: item.image.image }}
+                    style={styles.image}
+                  />
+                </CardItem>
+                <CardItem>
+                  <Text style={{ color: '#333333' }}>{item.image.caption}</Text>
+                </CardItem>
+              </Card>
 
-                )}
-              />
-            </View>
+            )}
+          />
 
 
-          ))}
         </View>
         <View style={{
-          flexDirection: 'row', bottom: 30, flex: 1, position: 'absolute', left: 0, right: 0, justifyContent: 'space-between',padding:15
+          flexDirection: 'row', bottom: 30, flex: 1, position: 'absolute', left: 0, right: 0, justifyContent: 'space-between', padding: 15,
         }}
         >
           <Button large transparent iconLeft onPress={() => this._deckSwiper._root.swipeLeft()}>

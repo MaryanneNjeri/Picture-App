@@ -56,7 +56,6 @@ class SignUpScreen extends React.Component {
 
   signUp=(email, password) => {
     const { error } = this.props;
-    const { navigate } = this.props.navigation;
     const user1 = {
       email,
       password,
@@ -71,7 +70,7 @@ class SignUpScreen extends React.Component {
       const { dispatch } = this.props;
       this.setState({ errors: {} });
       dispatch(signUp(email, password)).then((body) => {
-        if (error !== null) {
+        if (error == null) {
           Toast.show({
             text: ' Successfully Sign up',
             type: 'success',
@@ -79,17 +78,17 @@ class SignUpScreen extends React.Component {
             duration: 3000,
           });
 
-          navigate('App');
-        } else {
+          this.props.navigation.navigate('App');
+        } else if (error !== null) {
           Toast.show({
-            text: `${body.payload.error}`,
+            text: 'an error occurred',
             type: 'danger',
             position: 'top',
             duration: 3000,
 
           });
 
-          navigate('Auth');
+          this.props.navigation.navigate('Auth');
         }
       });
     }
@@ -101,7 +100,7 @@ class SignUpScreen extends React.Component {
 
   googleSignIn=() => {
     signInWithGoogle();
-  }
+  };
 
   render() {
     const { errors } = this.state;

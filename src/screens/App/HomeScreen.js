@@ -35,14 +35,12 @@ class HomeScreen extends React.Component {
     fetch();
   };
 
-  viewStoryDetails=() => {
-    const { event } = this.props;
-    this.props.navigation.navigate('StoryDetails', { images: event });
+  viewStoryDetails=(images) => {
+    this.props.navigation.navigate('StoryDetails', { images });
   };
 
   render() {
     const { event, loading, error } = this.props;
-    // console.log(event);
     if (loading) {
       return (
         <Loader />);

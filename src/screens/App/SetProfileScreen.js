@@ -3,7 +3,7 @@ import {
   StyleSheet, Image, Dimensions, Alert,
 } from 'react-native';
 import {
-  Content, Container, Text, View, Body, Icon, Left,
+  Content, Container, Text, View, Body, Icon, Left, Toast,
 } from 'native-base';
 import EditProfileForm from '../../components/Auth/EditProfileForm';
 import Fire from '../../firebase/config';
@@ -55,9 +55,17 @@ editProfile=async (userDetails) => {
   const user = Fire.auth().currentUser;
   await user.updateProfile(userDetails).then((response) => {
     console.log(response);
-    this.props.navigation.navigate('SetProfile');
+    this.props.navigation.navigate('Home');
+    Toast.show({
+      text: ' Profile successfully edited',
+      type: 'success',
+      position: 'top',
+      duration: 3000,
+    });
   }).catch((error) => {
     Alert.alert('An Error Occurred', error);
+    this.props.navigation.navigate('SetProfile');
+
   });
 };
 

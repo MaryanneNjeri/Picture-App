@@ -4,12 +4,13 @@ import {
 } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
-import { View, Text } from 'native-base';
+import { View, Text, Icon } from 'native-base';
 import _ from 'lodash';
 import * as ImagePicker from 'expo-image-picker';
 import FormInput from '../common/form/FormInput';
 import Fire from '../../firebase/config';
 import Button from '../common/buttons/Button';
+import { config } from '../../firebase/cloudinary';
 
 const styles = StyleSheet.create({
   avatar: {
@@ -26,7 +27,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 15,
   },
+  avatarIcon: {
+    width: 130,
+    height: 130,
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 130,
+
+    alignSelf: 'center',
+    color: '#ff0066',
+  },
 });
+let apiUrl = '';
+let base64Img = ';';
+
 // const formData = new FormData();
 // eslint-disable-next-line react/prefer-stateless-function
 export default class EditProfileForm extends React.Component {
@@ -35,6 +49,7 @@ export default class EditProfileForm extends React.Component {
     this.mounted = false;
     this.state = {
       userDetails: {},
+      loading: false,
     };
   }
 
@@ -71,22 +86,32 @@ export default class EditProfileForm extends React.Component {
         mediaTypes: ImagePicker.MediaTypeOptions.All,
         allowsEditing: true,
         aspect: [4, 3],
+        base64: true,
       });
       if (!result.cancelled) {
         const { userDetails } = this.state;
-        // const filename = result.uri.split('/').pop();
-        // const match = /\.(\w+)$/.exec(filename);
-        // const type = match ? `image/${match[1]}` : 'image';
-
-        // formData.append('photoURL', { uri: result.uri, name: filename, type });
-
-        this.setState({
-          userDetails: {
-            displayName: userDetails.displayName,
-            email: userDetails.email,
-            photoURL: result.uri,
-
+        base64Img = `data:image/jpg;base64,${result.base64}`;
+        apiUrl = 'https://api.cloudinary.com/v1_1/uploadpicha/image/upload';
+        const data = {
+          file: base64Img,
+          upload_preset: config.upload_preset,
+        };
+        fetch(apiUrl, {
+          body: JSON.stringify(data),
+          headers: {
+            'content-type': 'application/json',
           },
+          method: 'POST',
+        }).then(async (r) => {
+          const data1 = await r.json();
+          // console.log(data1);
+          this.setState({
+            userDetails: {
+              displayName: userDetails.displayName,
+              email: userDetails.email,
+              photoURL: data1.secure_url,
+            },
+          });
         });
       }
     };
@@ -95,11 +120,12 @@ export default class EditProfileForm extends React.Component {
     render() {
       const { userDetails } = this.state;
       const { editProfile } = this.props;
+      console.log(userDetails);
       return (
         <View>
           {!_.isEmpty(userDetails.photoURL)
             ? <Image style={styles.avatar} source={{ uri: userDetails.photoURL }} />
-            : <Image style={styles.avatar} source={{ uri: 'https://img.icons8.com/plasticine/200/000000/user.png' }} />
+            : <Icon style={styles.avatarIcon} name="user-circle" type="FontAwesome" />
 
           }
           <TouchableOpacity>
