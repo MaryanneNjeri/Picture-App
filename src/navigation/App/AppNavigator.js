@@ -10,6 +10,7 @@ import AccountScreen from '../../screens/App/AccountScreen';
 import ResetPasswordScreen from '../../screens/App/ResetPasswordScreen';
 import NewPostScreen from '../../screens/App/NewPostScreen';
 import StoryScreen from '../../screens/App/StoryScreen';
+import StoryDetailsScreen from '../../screens/App/StoryDetailsScreen';
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -64,6 +65,9 @@ const AppNavigator = createStackNavigator({
   },
   Story: {
     screen: StoryScreen,
+  },
+  StoryDetails: {
+    screen: StoryDetailsScreen,
   },
   ResetPassword: {
     screen: ResetPasswordScreen,

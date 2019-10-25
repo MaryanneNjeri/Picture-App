@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Body, Card, CardItem, Left, Text, Thumbnail, View,
+  Body, Card, CardItem, Icon, Left, Text, Thumbnail, View,
 } from 'native-base';
 import {
-  ScrollView, Image, StyleSheet, Dimensions,
+  ScrollView, Image, StyleSheet, Dimensions, TouchableOpacity,
 } from 'react-native';
 import _ from 'lodash';
 
@@ -11,42 +11,22 @@ import _ from 'lodash';
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  imageContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 5,
-  },
 
-  imagesContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   storiesContainer: {
     padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
   },
-  box: {
-    padding: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5,
-
-  },
   image: {
-    alignSelf: 'center',
-    width: width / 2,
-    height: height / 2.8,
-    borderRadius: 5,
-    padding: 10,
+    width: width - 20,
+    height: height / 2,
   },
-  textBox: {
-    padding: 15,
-    marginLeft: 10,
-    marginRight: 10,
+  card: {
+    alignSelf: 'center',
+    width: width - 20,
+    borderRadius: 5,
+    paddingBottom: 5,
   },
 });
 
@@ -64,75 +44,44 @@ export default class PopularEventsComponent extends React.Component {
                   <Text note style={{ fontWeight: 'bold', textAlign: 'center' }}>
                     {item.title}
                   </Text>
-                  <View style={{ alignSelf: 'flex-start', marginLeft: 10, flexDirection: 'row' }}>
-                    {!_.isEmpty(item.user.photoURL)
-                      ? (
+                  <Card key={i} style={styles.card}>
+                    <CardItem>
+                      <Left>
                         <Thumbnail
-                          small
                           source={{ uri: item.user.photoURL }}
                         />
-                      )
-                      : <Thumbnail source={{ uri: 'https://img.icons8.com/bubbles/100/000000/gender-neutral-user.png' }} />
-
-                    }
-                    <Text>{' '}</Text>
-
-                    <Text style={{
-                      fontWeight: '200', fontSize: 12, color: '#ff0066', marginTop: 15,
-                    }}
-                    >
-                      {item.user.name}
-                    </Text>
-
-
-                  </View>
-                  <ScrollView
-                    horizontal
-                    style={{
-                      flexDirection: 'row', marginLeft: 10, marginRight: 10,
-                    }}
-                  >
-                    {_.map(item.images, (image, i) => (
-                      !_.isEmpty(item.images)
-                        ? (
-                          <View key={i} style={styles.box}>
-                            <Image
-                              source={{ uri: image.image.image }}
-                              style={styles.image}
-                            />
-                          </View>
-                        ) : (
-                          <Text>
-                                          No photos uploaded to this story
+                        <Body>
+                          <Text style={{ fontWeight: '200', fontSize: 14 }}>
+                            {item.user.name}
                           </Text>
-                        )
 
-                    ))}
-                  </ScrollView>
+                        </Body>
+                      </Left>
+                    </CardItem>
+                    <CardItem cardBody>
+                      <TouchableOpacity onPress={this.viewStoryDetails}>
+                        <Image
+                          source={{ uri: item.images[1].image.image }}
+                          style={styles.image}
+                        />
+                      </TouchableOpacity>
+                    </CardItem>
+                    <CardItem>
+                      <View style={{ flexDirection: 'column' }}>
+                        <Text style={{ fontWeight: '200', fontSize: 15 }}>{item.description}</Text>
+                        <Text>{' '}</Text>
+                        <TouchableOpacity onPress={this.viewStoryDetails}>
+                          <Text style={{ fontSize: 12 }} note>
+                            {' '}
+                            <Icon type="Feather" name="send" style={{ fontSize: 20, color: '#ff0066' }} />
+                            {' '}
+                            View Story
+                          </Text>
+                        </TouchableOpacity>
 
-                  <View style={styles.textBox}>
-                    <Card>
-                      <CardItem>
-                        <Left>
-                          <Body>
-                            <Text note>
-                            Story Description
-                            </Text>
-                          </Body>
-                        </Left>
-                      </CardItem>
-
-                      <CardItem
-                        cardBody
-                        style={{
-                          alignContent: 'center', justifyContent: 'center', marginBottom: 10, padding: 10,
-                        }}
-                      >
-                        <Text style={{ textAlign: 'center', fontWeight: '200' }}>{item.description}</Text>
-                      </CardItem>
-
-                    </Card>
-                  </View>
+                      </View>
+                    </CardItem>
+                  </Card>
                 </View>
               ))}
 

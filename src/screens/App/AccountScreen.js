@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Content, Header, Text, View, Body, Card, CardItem, Left, Thumbnail, Right,
+  Container, Content, Header, Text, View, Body, Card, CardItem, Left, Thumbnail, Icon,
 } from 'native-base';
 import {
   Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity,
@@ -103,6 +103,10 @@ class AccountScreen extends React.Component {
     dispatch(fetchStories());
   };
 
+  viewStoryDetails=() => {
+    this.props.navigation.navigate('StoryDetails');
+  };
+
   render() {
     const {
       photoURL, name,
@@ -171,7 +175,7 @@ Create
                               source={{ uri: item.user.photoURL }}
                             />
                             <Body>
-                              <Text style={{ fontWeight: '200', fontSize: 12, color: '#ff0066' }}>
+                              <Text style={{ fontWeight: '200', fontSize: 14 }}>
                                 {item.user.name}
                               </Text>
 
@@ -179,17 +183,27 @@ Create
                           </Left>
                         </CardItem>
                         <CardItem cardBody>
-                          <Image
-                            source={{ uri: item.images[1].image.image }}
-                            style={styles.image}
-                          />
+                          <TouchableOpacity onPress={this.viewStoryDetails}>
+                            <Image
+                              source={{ uri: item.images[1].image.image }}
+                              style={styles.image}
+                            />
+                          </TouchableOpacity>
                         </CardItem>
                         <CardItem>
-                          <Left />
-                          <Body>
-                            <Text style={{ fontWeight: '200', fontSize: 12 }}>{item.description}</Text>
-                          </Body>
-                          <Right />
+                          <View style={{ flexDirection: 'column' }}>
+                            <Text style={{ fontWeight: '200', fontSize: 15 }}>{item.description}</Text>
+                            <Text>{' '}</Text>
+                            <TouchableOpacity onPress={this.viewStoryDetails}>
+                              <Text style={{ fontSize: 12 }} note>
+                                {' '}
+                                <Icon type="Feather" name="send" style={{ fontSize: 20, color: '#ff0066' }} />
+                                {' '}
+View Story
+                              </Text>
+                            </TouchableOpacity>
+
+                          </View>
                         </CardItem>
 
                       </Card>
