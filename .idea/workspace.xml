@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js" line="138" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js" line="139" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3989f6-0a40-461f-86cd-80c88b61166a" name="Default Changelist" comment="" />
+    <list default="true" id="6f3989f6-0a40-461f-86cd-80c88b61166a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/App/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/App/AccountScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/App/StoryScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/App/StoryScreen.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +22,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/App/HomeScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+            <state relative-caret-position="1012">
+              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/App/SetProfileScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="968">
+              <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="46" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/App/StoryScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4466">
+              <caret line="203" column="35" selection-start-line="203" selection-start-column="35" selection-end-line="203" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -26,44 +56,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/screens/App/StoryScreen.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="205" column="43" selection-start-line="205" selection-start-column="43" selection-end-line="205" selection-end-column="43" />
+            <state relative-caret-position="418">
+              <caret line="189" column="43" selection-start-line="189" selection-start-column="43" selection-end-line="189" selection-end-column="43" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/App/NewPostScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/navigation/App/AppNavigator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1166">
-              <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/navigation/MainAppNavigator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#77#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1386">
-              <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+            <state relative-caret-position="1738">
+              <caret line="79" column="6" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -84,7 +82,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
+            <state relative-caret-position="682">
               <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
@@ -165,15 +163,15 @@
         <option value="$PROJECT_DIR$/src/redux/account/action.js" />
         <option value="$PROJECT_DIR$/src/redux/account/reducer.js" />
         <option value="$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js" />
-        <option value="$PROJECT_DIR$/src/screens/App/AccountScreen.js" />
         <option value="$PROJECT_DIR$/src/components/Home/HeaderComponent.js" />
         <option value="$PROJECT_DIR$/src/components/lib/functions/auth/googleSignIn.js" />
         <option value="$PROJECT_DIR$/src/screens/App/index.js" />
-        <option value="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" />
         <option value="$PROJECT_DIR$/src/screens/App/HomeScreen.js" />
         <option value="$PROJECT_DIR$/src/components/common/form/FormInput.js" />
         <option value="$PROJECT_DIR$/src/screens/App/NewPostScreen.js" />
+        <option value="$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js" />
         <option value="$PROJECT_DIR$/src/screens/App/StoryScreen.js" />
+        <option value="$PROJECT_DIR$/src/screens/App/AccountScreen.js" />
       </list>
     </option>
   </component>
@@ -183,10 +181,10 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="1039" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="944" />
     <option name="y" value="27" />
-    <option name="width" value="878" />
+    <option name="width" value="973" />
     <option name="height" value="1053" />
   </component>
   <component name="ProjectView">
@@ -194,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,43 +215,13 @@
               <item name="picture_app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="buttons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
               <item name="picture_app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="picture_app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="redux" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="picture_app" type="b2602c69:ProjectViewProjectNode" />
@@ -273,6 +240,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,18 +312,24 @@
       <workItem from="1571053209371" duration="5380000" />
       <workItem from="1571117511282" duration="8360000" />
       <workItem from="1571132043152" duration="11384000" />
-      <workItem from="1571204243229" duration="6488000" />
+      <workItem from="1571204243229" duration="6520000" />
+      <workItem from="1571291016806" duration="667000" />
+      <workItem from="1571763118397" duration="632000" />
+      <workItem from="1571809756248" duration="6367000" />
+      <workItem from="1571895561063" duration="647000" />
+      <workItem from="1571982549960" duration="4976000" />
+      <workItem from="1571989492525" duration="2233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266735000" />
+    <option name="totallyTimeSpent" value="282289000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1039" y="27" width="878" height="1053" extended-state="1" />
+    <frame x="944" y="27" width="973" height="1053" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3341346" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26984128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -370,7 +344,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32900432" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.5335498" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.53246754" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -382,16 +356,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/Auth/LoginForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="34" selection-start-line="34" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -434,16 +398,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="16" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/App/SetProfileScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="46" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -603,16 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2178">
-          <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/lib/functions/auth/googleSignIn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -697,16 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/App/HomeScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/navigation/App/AppNavigator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1166">
@@ -726,10 +660,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/App/NewPostScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/App/HomeScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/App/SetProfileScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="968">
+          <caret line="44" column="3" selection-start-line="44" selection-start-column="3" selection-end-line="46" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/App/StoryScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4466">
+          <caret line="203" column="35" selection-start-line="203" selection-start-column="35" selection-end-line="203" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Home/PopularEventsComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        <state relative-caret-position="1738">
+          <caret line="79" column="6" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -738,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/lib/functions/auth/facebook.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
+        <state relative-caret-position="682">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
@@ -753,17 +730,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/App/NewPostScreen.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/App/AccountScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/App/StoryScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="205" column="43" selection-start-line="205" selection-start-column="43" selection-end-line="205" selection-end-column="43" />
+        <state relative-caret-position="418">
+          <caret line="189" column="43" selection-start-line="189" selection-start-column="43" selection-end-line="189" selection-end-column="43" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

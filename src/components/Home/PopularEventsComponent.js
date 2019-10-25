@@ -96,9 +96,8 @@ export default class PopularEventsComponent extends React.Component {
                       !_.isEmpty(item.images)
                         ? (
                           <View key={i} style={styles.box}>
-
                             <Image
-                              source={{ uri: image.image }}
+                              source={{ uri: image.image.image }}
                               style={styles.image}
                             />
                           </View>

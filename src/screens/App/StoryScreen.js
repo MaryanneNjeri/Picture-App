@@ -3,8 +3,9 @@ import {
   Container, Content, Text, View,
 } from 'native-base';
 import {
-  Alert, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList,
+  Alert, StyleSheet, Image, Dimensions, TouchableOpacity, FlatList, ListView, ScrollView,
 } from 'react-native';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
@@ -112,7 +113,7 @@ export default class StoryScreen extends React.Component {
       this.setState({
         images: imagesArray1,
       });
-      // console.log(imagesArray1);
+      // console.log('refresged',imagesArray1);
     };
 
     takePhoto=async () => {
@@ -197,29 +198,22 @@ export default class StoryScreen extends React.Component {
             </View>
             <View style={styles.imageContainer}>
               { !_.isEmpty(images)
-
                 ? (
-                  <FlatList
-                    data={images}
-                    renderItem={({ item }) => (
-                      <View style={{ marginLeft: 10 }}>
-                        <Text>{item.caption}</Text>
-                        <Image
-                          source={{ uri: item.image.image }}
-                          style={{
-                            alignSelf: 'center', width: width / 2, height: width / 2, borderRadius: 5,
-                          }}
-                        />
-                        <Text style={{ fontWeight: '200' }}>{item.image.caption}</Text>
-
-
-                      </View>
-                    )}
-                    keyExtractor={item => item.image.image}
-                    numColumns={2}
-                    showsVerticalScrollIndicator={false}
-                    horizontal={false}
-                  />
+                  <Grid>
+                    {_.map(images, (item, i) => (
+                      <Row key={i}>
+                        <Col>
+                          <Image
+                            source={{ uri: item.image.image }}
+                            style={{
+                              alignSelf: 'center', width: width / 3, height: width / 3, borderRadius: 8,
+                            }}
+                          />
+                          <Text note style={{ fontSize: 12 }}>{item.image.caption}</Text>
+                        </Col>
+                      </Row>
+                    ))}
+                  </Grid>
                 )
                 : (
                   <View style={{ alignContent: 'center', justifyContent: 'center' }}>
