@@ -33,7 +33,12 @@ class HomeScreen extends React.Component {
   loadStories=() => {
     const { fetch } = this.props;
     fetch();
-  }
+  };
+
+  viewStoryDetails=() => {
+    const { event } = this.props;
+    this.props.navigation.navigate('StoryDetails', { images: event });
+  };
 
   render() {
     const { event, loading, error } = this.props;
@@ -73,7 +78,7 @@ Load new stories
             {' '}
             {' '}
           </Text>
-          <PopularEventsComponent events={event} />
+          <PopularEventsComponent viewStory={this.viewStoryDetails} events={event} />
 
         </Content>
       </Container>

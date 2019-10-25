@@ -104,7 +104,8 @@ class AccountScreen extends React.Component {
   };
 
   viewStoryDetails=() => {
-    this.props.navigation.navigate('StoryDetails');
+    const { results } = this.props;
+    this.props.navigation.navigate('StoryDetails', { images: results });
   };
 
   render() {

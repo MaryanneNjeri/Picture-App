@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 // eslint-disable-next-line react/prefer-stateless-function
 export default class PopularEventsComponent extends React.Component {
   render() {
-    const { events } = this.props;
+    const { events, viewStory } = this.props;
     return (
       <ScrollView>
         {!_.isEmpty(events)
@@ -59,7 +59,7 @@ export default class PopularEventsComponent extends React.Component {
                       </Left>
                     </CardItem>
                     <CardItem cardBody>
-                      <TouchableOpacity onPress={this.viewStoryDetails}>
+                      <TouchableOpacity onPress={() => { viewStory(); }}>
                         <Image
                           source={{ uri: item.images[1].image.image }}
                           style={styles.image}
@@ -70,7 +70,7 @@ export default class PopularEventsComponent extends React.Component {
                       <View style={{ flexDirection: 'column' }}>
                         <Text style={{ fontWeight: '200', fontSize: 15 }}>{item.description}</Text>
                         <Text>{' '}</Text>
-                        <TouchableOpacity onPress={this.viewStoryDetails}>
+                        <TouchableOpacity onPress={() => { viewStory(); }}>
                           <Text style={{ fontSize: 12 }} note>
                             {' '}
                             <Icon type="Feather" name="send" style={{ fontSize: 20, color: '#ff0066' }} />
